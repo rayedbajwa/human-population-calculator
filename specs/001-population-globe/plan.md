@@ -21,7 +21,7 @@ assets in the repository. Test planning is a first-class part of this plan (see
 **Testing**: Vitest (pure logic: formatting, search, diversity scaling, dataset selectors), `@testing-library/react` + `happy-dom` (component/integration), Playwright headless Chromium at `/ms-playwright` (end-to-end acceptance on port `3454`)
 **Target Platform**: evergreen desktop and mobile browsers (Chromium/WebKit/Firefox baselines); viewports 360–1920px
 **Project Type**: web-app (static SPA, no backend)
-**Performance Goals / Constraints / Scale**: <2s from select to detail render; ≥95% of countries shaded on first load; <1s valid search suggestion; initial JS bundle kept small by lazy-loading the globe chunk; works with `prefers-reduced-motion`.
+**Performance Goals / Constraints / Scale**: <2s from select to detail render; ≥95% of the globe's Natural Earth boundary features shaded on first load (SC-003); <1s valid search suggestion; initial JS bundle kept small by lazy-loading the globe chunk; works with `prefers-reduced-motion`.
 
 ## Constitution Check
 

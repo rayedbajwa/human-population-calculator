@@ -97,9 +97,25 @@
 - Polish E2E tasks depend on the stories they exercise; T054 depends on all story and polish tasks.
 - Delivery runs in the single repository `rayedbajwa/human-population-calculator`; no task waits on another repository's merge. T057–T060 depend in order on T056; T059/T060 depend on T058.
 
+## Review fixes (2026-10-02, iteration 2)
+
+Addresses every finding in `code-review.md` (`Code Review Status: CHANGES_REQUESTED`).
+
+- [x] T061 [MAJOR] Clarify SC-003's denominator as the Natural Earth boundary features the globe renders, add the committed reproducible check over the real snapshot, and correct the README figures (`spec.md`, `plan.md`, `test-plan.md`, `data/README.md`, `tests/unit/dataset.coverage.test.ts`, `tests/e2e/performance.spec.ts`)
+- [x] T062 [MAJOR] Add `tests/unit/dataset.test.ts` for `parseSnapshot`/`loadSnapshot` (valid input, every rejection branch, network/HTTP/parse failures) and the `countryByCode`/`sourceById` selectors
+- [x] T063 [MAJOR] Surface a boundary-fetch failure with a retry and add the blocked-boundaries E2E case (`src/components/GlobeView.tsx`, `tests/e2e/error-retry.spec.ts`)
+- [x] T064 [MAJOR] Add observable camera/focus signals and assert rotation (US1-2), zoom-with-selection (US1-4) and search focus (US3-2) (`src/components/GlobeView.tsx`, `tests/e2e/globe.spec.ts`, `tests/e2e/search.spec.ts`)
+- [x] T065 [MINOR] Fix the antimeridian centroid with a largest-gap longitude unwrap and unit-test it (`src/lib/geo.ts`, `src/components/GlobeView.tsx`, `tests/unit/geo.test.ts`)
+- [x] T066 [MINOR] Implement the hover readout instead of dead `onHover` plumbing (`src/App.tsx`, `src/components/GlobeView.tsx`, `src/styles/app.css`)
+- [x] T067 [MINOR] Add `ErrorState` and `DataUnavailable` component tests (`tests/component/ErrorState.test.tsx`, `tests/component/DataUnavailable.test.tsx`)
+- [x] T068 [MINOR] Add a Biome lint gate wired into `test:all` and CI (`biome.json`, `package.json`, `.github/workflows/ci.yml`, `src/components/SearchBox.tsx`, `src/components/GlobeView.tsx`)
+- [x] T069 [MINOR] Implement the ARIA combobox keyboard pattern and document the population-source deviation (`src/components/SearchBox.tsx`, `tests/component/SearchBox.test.tsx`, `data/README.md`)
+
+Re-run record (this iteration): `bun run lint` clean (42 files), `bun run typecheck` clean, `bun run test` **81 passed / 0 failed** (13 files), and the four affected E2E specs (`globe`, `search`, `error-retry`, `performance`) **14 passed / 0 failed**. The full `bun run test:all` gate is re-run below.
+
 ## Implementation Notes (2026-10-02)
 
 - T001–T055 implemented in this repository (branch `001-population-globe`). Delivery T056–T060 remain open pending a push and human approval for merge, deploy and UAT.
 - Dataset: real World Bank `SP.POP.TOTL` population (215/250 countries) and CIA World Factbook diversity (215/250) captured by `scripts/fetch-dataset.ts`; the diversity indicator is derived from the Factbook ethnic shares and is named as derived (see `data/README.md` for the documented deviation from `research.md`).
 - Toolchain: Vitest 3 (Vite 6 compatibility), React dev build forced in `vitest.config.ts` because the host exports `NODE_ENV=production`, and E2E uses `PLAYWRIGHT_PORT` (default 3454) because the host reserves `PORT`.
-- Baseline: `bun run validate:dataset` (2 files, non-fatal share-sum warnings), `bun run typecheck`, 38 unit/component tests, `bun run build`, and 24 Playwright E2E tests all pass via `bun run test:all`.
+- Baseline: `bun run validate:dataset` (2 files, non-fatal share-sum warnings), `bun run lint` clean, `bun run typecheck`, 81 unit/component tests, `bun run build`, and the Playwright E2E suite all pass via `bun run test:all`.

@@ -109,7 +109,7 @@ A visitor who already has a country in mind types its name into a search field a
 
 - **SC-001**: A first-time visitor can identify the world's most populous country within 60 seconds of opening the page, without external instructions.
 - **SC-002**: Selecting a country shows its population and diversity summary within 2 seconds.
-- **SC-003**: 95% of countries in the dataset render with population shading on first load.
+- **SC-003**: 95% of the countries the globe renders (the Natural Earth 1:110m boundary features that resolve to a dataset entry) load with population shading. The dataset may contain more countries/territories than the boundary set; coverage of the full dataset is tracked separately as a regression floor, not as SC-003.
 - **SC-004**: At least 95% of valid country searches return a matching suggestion within 1 second.
 - **SC-005**: A first-time visitor can rotate, zoom and select a country using only on-screen hints, succeeding on the first attempt at least 90% of the time in usability checks.
 - **SC-006**: The page remains fully usable, with no horizontal scrolling and all controls reachable, at viewport widths of 360px, 768px, 1280px and 1920px.

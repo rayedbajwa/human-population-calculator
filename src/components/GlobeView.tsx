@@ -4,6 +4,7 @@ import { feature } from 'topojson-client'
 import type { Country } from '../types'
 import { NO_DATA_COLOR, populationBucket } from '../lib/diversity'
 import { BOUNDARIES_URL } from '../lib/dataset'
+import { centroidLatLng } from '../lib/geo'
 
 export interface GlobeViewProps {
   countries: Country[]
@@ -31,27 +32,6 @@ function decodeFeatures(topo: unknown): Array<{ id: string; geometry: unknown; p
   }))
 }
 
-function centroidLatLng(geometry: unknown): { lat: number; lng: number } | null {
-  const points: Array<[number, number]> = []
-  const walk = (value: unknown): void => {
-    if (!Array.isArray(value)) return
-    if (typeof value[0] === 'number' && typeof value[1] === 'number') {
-      points.push([value[0], value[1]])
-      return
-    }
-    for (const child of value) walk(child)
-  }
-  walk((geometry as { coordinates?: unknown })?.coordinates)
-  if (points.length === 0) return null
-  let lng = 0
-  let lat = 0
-  for (const [x, y] of points) {
-    lng += x
-    lat += y
-  }
-  return { lat: lat / points.length, lng: lng / points.length }
-}
-
 /** Interactive 3D choropleth globe (FR-001/002/003). */
 export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedMotion }: GlobeViewProps) {
   const wrapRef = useRef<HTMLDivElement>(null)
@@ -59,21 +39,29 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
   const [size, setSize] = useState({ width: 800, height: 600 })
   const [rawFeatures, setRawFeatures] = useState<Array<{ id: string; geometry: unknown; properties: Record<string, unknown> }>>([])
   const [interacted, setInteracted] = useState(false)
+  const [boundaryError, setBoundaryError] = useState(false)
+  const [reloadKey, setReloadKey] = useState(0)
+  const [camera, setCamera] = useState<{ lat: number; lng: number } | null>(null)
+  const [focusCode, setFocusCode] = useState<string | null>(null)
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: reloadKey intentionally re-runs the boundary fetch on retry.
   useEffect(() => {
     let cancelled = false
+    setBoundaryError(false)
     fetch(BOUNDARIES_URL)
       .then((response) => (response.ok ? response.json() : Promise.reject(new Error('boundaries'))))
       .then((topo: unknown) => {
         if (!cancelled) setRawFeatures(decodeFeatures(topo))
       })
       .catch(() => {
-        /* The globe renders without shading if boundaries fail; snapshot errors are handled by App. */
+        // FR-014: a boundary load/render failure must be visible with a retry,
+        // not a silently unshaded globe.
+        if (!cancelled) setBoundaryError(true)
       })
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [reloadKey])
 
   const byBoundary = useMemo(() => {
     const map = new Map<string, Country>()
@@ -106,6 +94,7 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
     return () => observer.disconnect()
   }, [])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: size.width re-applies control settings after the globe resizes.
   useEffect(() => {
     const controls = globeRef.current?.controls?.()
     if (!controls) return
@@ -120,6 +109,7 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
     if (!polygon) return
     const centre = centroidLatLng(polygon.geometry)
     if (!centre) return
+    setFocusCode(selectedCode)
     globeRef.current?.pointOfView?.({ lat: centre.lat, lng: centre.lng, altitude: 1.3 }, reducedMotion ? 0 : 800)
   }, [selectedCode, polygons, reducedMotion])
 
@@ -140,6 +130,9 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
       className="pg-globe-wrap"
       ref={wrapRef}
       data-testid="globe-view"
+      data-camera-lat={camera ? camera.lat.toFixed(2) : ''}
+      data-camera-lng={camera ? camera.lng.toFixed(2) : ''}
+      data-focus-code={focusCode ?? ''}
       onPointerDown={() => setInteracted(true)}
     >
       <span
@@ -148,6 +141,19 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
         data-shaded={shading.shaded}
         data-total={shading.total}
       />
+      {boundaryError && (
+        <div className="pg-error pg-card pg-globe-error" role="alert" data-testid="boundary-error">
+          <h2>Map boundaries could not be loaded</h2>
+          <p className="pg-muted">The country shapes failed to load, so the map cannot be shaded.</p>
+          <button
+            type="button"
+            className="pg-button"
+            onClick={() => setReloadKey((key) => key + 1)}
+          >
+            Retry
+          </button>
+        </div>
+      )}
       <Globe
         ref={globeRef}
         width={size.width}
@@ -166,6 +172,7 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
           const country = (obj as PolygonDatum).country
           if (country) onSelect(country.code)
         }}
+        onZoom={(pov: { lat: number; lng: number }) => setCamera({ lat: pov.lat, lng: pov.lng })}
       />
     </div>
   )

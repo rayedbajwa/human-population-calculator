@@ -60,4 +60,34 @@ describe('SearchBox', () => {
     expect(screen.getByTestId('search-no-results')).toHaveTextContent(/no countries found/i)
     expect(onChoose).not.toHaveBeenCalled()
   })
+
+  it('chooses the active suggestion with the keyboard', async () => {
+    const onChoose = vi.fn()
+    const user = userEvent.setup()
+    render(<Harness onChoose={onChoose} />)
+    const input = screen.getByTestId('search-input')
+    await user.type(input, 'jap')
+    await user.keyboard('{ArrowDown}{Enter}')
+    expect(onChoose).toHaveBeenCalledWith('JPN')
+  })
+
+  it('exposes the active option through aria-activedescendant', async () => {
+    const user = userEvent.setup()
+    render(<Harness />)
+    const input = screen.getByTestId('search-input')
+    await user.type(input, 'jap')
+    await user.keyboard('{ArrowDown}')
+    expect(input).toHaveAttribute('aria-activedescendant', 'pg-option-JPN')
+    expect(screen.getByTestId('suggestion-JPN').closest('li')).toHaveAttribute(
+      'aria-selected',
+      'true',
+    )
+  })
+
+  it('does not point aria-controls at a missing list when there are no results', async () => {
+    const user = userEvent.setup()
+    render(<Harness />)
+    await user.type(screen.getByTestId('search-input'), 'zzzzzz')
+    expect(screen.getByTestId('search-input')).not.toHaveAttribute('aria-controls')
+  })
 })

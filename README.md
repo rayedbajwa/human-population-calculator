@@ -25,11 +25,12 @@ bun run preview --port 3454 # production-like preview
 ## Test and checks
 
 ```bash
+bun run lint           # Biome lint
 bun run typecheck      # tsc --noEmit
 bun run test           # Vitest: unit + component
 bun run test:e2e       # Playwright E2E (builds + serves on port 3454)
 bun run validate:dataset
-bun run test:all       # typecheck + unit + build + E2E in one run (the CI gate)
+bun run test:all       # lint + typecheck + unit + build + E2E in one run (the CI gate)
 ```
 
 `test:e2e` starts the production preview on `127.0.0.1:3454` (override with

@@ -53,7 +53,7 @@ E2E uses the pre-installed Chromium under `/ms-playwright` and serves on port `3
 | Edge: accented/duplicate names | Unit, E2E | T041, T043 |
 | Edge: resize/rotate reflow + state retention | E2E | T028, T048 |
 | SC-002 select→detail <2s | E2E perf | T050 |
-| SC-003 ≥95% countries shaded on load | E2E perf | T050 |
+| SC-003 ≥95% of the globe's boundary features shaded on load | E2E perf + Unit (dataset) | T050, T061 |
 | SC-004 valid search <1s | E2E perf | T050 |
 | SC-006 usable at 360/768/1280/1920 | E2E | T048 |
 | SC-007 no figure without provenance | Component, E2E | T038, T051 |

@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import type { Country } from '../types'
 import { searchCountries } from '../lib/search'
 
@@ -12,10 +12,37 @@ export interface SearchBoxProps {
 /**
  * Country search. Fewer than two characters shows nothing; two or more shows
  * ranked suggestions or a clear "no countries found" message (FR-006, US3).
+ * Implements the ARIA combobox keyboard pattern (ArrowUp/Down, Enter, Escape).
  */
 export function SearchBox({ countries, query, onQueryChange, onChoose }: SearchBoxProps) {
   const matches = useMemo(() => searchCountries(countries, query), [countries, query])
   const active = query.trim().length >= 2
+  const hasResults = active && matches.length > 0
+  const [activeIndex, setActiveIndex] = useState(-1)
+
+  const activeOption =
+    activeIndex >= 0 && activeIndex < matches.length ? matches[activeIndex] : undefined
+
+  const handleQueryChange = (value: string): void => {
+    setActiveIndex(-1)
+    onQueryChange(value)
+  }
+
+  const onKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+    if (!hasResults) return
+    if (event.key === 'ArrowDown') {
+      event.preventDefault()
+      setActiveIndex((index) => (index + 1) % matches.length)
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault()
+      setActiveIndex((index) => (index - 1 + matches.length) % matches.length)
+    } else if (event.key === 'Enter' && activeOption) {
+      event.preventDefault()
+      onChoose(activeOption.code)
+    } else if (event.key === 'Escape') {
+      setActiveIndex(-1)
+    }
+  }
 
   return (
     <div className="pg-search">
@@ -30,22 +57,34 @@ export function SearchBox({ countries, query, onQueryChange, onChoose }: SearchB
         placeholder="Type at least 2 characters"
         autoComplete="off"
         role="combobox"
-        aria-expanded={active && matches.length > 0}
-        aria-controls="pg-search-results"
-        onChange={(event) => onQueryChange(event.target.value)}
+        aria-expanded={hasResults}
+        aria-autocomplete="list"
+        aria-controls={hasResults ? 'pg-search-results' : undefined}
+        aria-activedescendant={activeOption ? `pg-option-${activeOption.code}` : undefined}
+        onKeyDown={onKeyDown}
+        onChange={(event) => handleQueryChange(event.target.value)}
       />
-      {active && matches.length > 0 && (
+      {hasResults && (
         <ul
           className="pg-suggestions"
           id="pg-search-results"
+          // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: ARIA combobox listbox pattern; focus stays on the input via aria-activedescendant.
           role="listbox"
           data-testid="search-suggestions"
         >
-          {matches.map((country) => (
-            <li key={country.code} role="option" aria-selected="false">
+          {matches.map((country, index) => (
+            <li
+              key={country.code}
+              id={`pg-option-${country.code}`}
+              // biome-ignore lint/a11y/noNoninteractiveElementToInteractiveRole: standard option role inside a combobox listbox.
+              role="option"
+              aria-selected={index === activeIndex}
+              tabIndex={-1}
+            >
               <button
                 type="button"
                 data-testid={`suggestion-${country.code}`}
+                onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => onChoose(country.code)}
               >
                 {country.commonName}

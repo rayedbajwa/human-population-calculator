@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   test:
-    name: typecheck, unit, build, e2e
+    name: lint, typecheck, unit, build, e2e
     runs-on: ubuntu-latest
     env:
       PLAYWRIGHT_PORT: '3454'
@@ -34,7 +34,7 @@ jobs:
       - name: Validate dataset
         run: bun run validate:dataset
 
-      # Single gate: typecheck -> unit/component -> build -> E2E together.
+      # Single gate: lint -> typecheck -> unit/component -> build -> E2E together.
       - name: Full test suite
         run: bun run test:all
 

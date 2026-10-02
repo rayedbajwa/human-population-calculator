@@ -14,20 +14,45 @@ test.describe('US1 — interactive population globe', () => {
     await expect(stats).toHaveAttribute('data-total', /[1-9]/)
   })
 
-  test('rotates and zooms without losing the globe', async ({ page }) => {
+  test('rotates the camera when dragged', async ({ page }) => {
+    // Reduced motion disables auto-spin so the only camera movement is the drag.
+    await page.emulateMedia({ reducedMotion: 'reduce' })
     await openApp(page)
+
+    const globe = page.getByTestId('globe-view')
     const canvas = page.locator('.pg-globe-wrap canvas')
     const box = await canvas.boundingBox()
     test.skip(!box, 'canvas is not measurable')
 
+    // Wheel once to let the controls emit an initial camera position.
     await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2)
-    await page.mouse.down()
-    await page.mouse.move(box!.x + box!.width / 2 + 120, box!.y + box!.height / 2 + 40, { steps: 10 })
-    await page.mouse.up()
-    await page.mouse.wheel(0, -400)
+    await page.mouse.wheel(0, -200)
+    await expect(globe).toHaveAttribute('data-camera-lng', /.+/)
+    const before = await globe.getAttribute('data-camera-lng')
 
+    await page.mouse.down()
+    await page.mouse.move(box!.x + box!.width / 2 + 150, box!.y + box!.height / 2, { steps: 10 })
+    await page.mouse.up()
+
+    await expect
+      .poll(async () => globe.getAttribute('data-camera-lng'))
+      .not.toBe(before)
     await expect(page.getByTestId('globe-view')).toBeVisible()
     await expect(canvas).toBeVisible()
+  })
+
+  test('zooms without losing the current selection', async ({ page }) => {
+    await openApp(page)
+    await searchAndSelect(page, 'Japan', 'JPN')
+    await expect(page.getByTestId('detail-panel')).toContainText('Japan')
+
+    const canvas = page.locator('.pg-globe-wrap canvas')
+    const box = await canvas.boundingBox()
+    test.skip(!box, 'canvas is not measurable')
+    await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2)
+    await page.mouse.wheel(0, -400)
+
+    await expect(page.getByTestId('detail-panel')).toContainText('Japan')
   })
 
   test('selects a country and shows name, population and reference year', async ({ page }) => {

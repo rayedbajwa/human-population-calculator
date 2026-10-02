@@ -9,10 +9,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
+    "lint": "biome lint src scripts tests",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "test:all": "bun run typecheck && bun run test && bun run build && bun run test:e2e",
+    "test:all": "bun run lint && bun run typecheck && bun run test && bun run build && bun run test:e2e",
     "fetch:dataset": "bun scripts/fetch-dataset.ts",
     "validate:dataset": "bun scripts/validate-dataset.ts"
   },
@@ -27,6 +28,7 @@
     "topojson-client": "^3.1.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
     "@playwright/test": "1",
     "@testing-library/jest-dom": "6",
     "@testing-library/react": "16",

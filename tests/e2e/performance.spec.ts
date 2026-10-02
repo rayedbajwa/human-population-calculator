@@ -58,12 +58,13 @@ test.describe('Cross-cutting — performance smoke', () => {
     expect(duration).toBeLessThan(1000)
   })
 
-  test('at least 95% of boundary countries are shaded on first load', async ({ page }) => {
+  test("at least 95% of the globe's boundary features are shaded on first load", async ({ page }) => {
     await openApp(page)
     const stats = page.getByTestId('shading-stats')
     await expect(stats).toHaveAttribute('data-total', /[1-9]/)
     const shaded = Number(await stats.getAttribute('data-shaded'))
     const total = Number(await stats.getAttribute('data-total'))
+    // SC-003 denominator: the Natural Earth boundary features the globe renders.
     expect(shaded / total).toBeGreaterThanOrEqual(0.95)
   })
 })

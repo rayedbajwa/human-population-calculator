@@ -15,4 +15,20 @@ test.describe('Cross-cutting — load failure and retry', () => {
     await expect(page.getByTestId('legend')).toBeVisible({ timeout: 20_000 })
     await expect(errorState).toHaveCount(0)
   })
+
+  test('shows a retryable error when the country boundaries are blocked', async ({ page }) => {
+    await page.route('**/data/countries-110m.topo.json', (route) => route.abort())
+    await page.goto('/')
+    await expect(page.getByTestId('legend')).toBeVisible({ timeout: 20_000 })
+
+    const boundaryError = page.getByTestId('boundary-error')
+    await expect(boundaryError).toBeVisible({ timeout: 20_000 })
+    await expect(page.getByTestId('shading-stats')).toHaveAttribute('data-total', '0')
+
+    await page.unroute('**/data/countries-110m.topo.json')
+    await boundaryError.getByRole('button', { name: /retry/i }).click()
+
+    await expect(page.getByTestId('shading-stats')).toHaveAttribute('data-total', /[1-9]/)
+    await expect(boundaryError).toHaveCount(0)
+  })
 })

@@ -21,9 +21,17 @@ Boundaries: Natural Earth 1:110m Admin-0, redistributed by the `world-atlas` npm
 
 `Country.diversityIndicator` is the **ethnic fractionalisation index derived from the CIA
 World Factbook ethnic shares** using `1 − Σ share²`, on a 0–1 scale. It is named as derived in
-the data; it is not a published index figure. This is the one deliberate deviation from
+the data; it is not a published index figure. This is a deliberate deviation from
 `research.md`'s preference for the published QoG/Alesina index, because no keyless, stable
 publication of that index was available to automate here.
+
+## Population source deviation
+
+The second deliberate deviation is the population source: `research.md` named UN WPP as the
+primary source with the World Bank only as a fallback, but `scripts/fetch-dataset.ts` uses the
+World Bank `SP.POP.TOTL` indicator exclusively. This was chosen because it is keyless, stable
+and machine-readable end to end, so the snapshot can be regenerated without manual downloads.
+The snapshot names the source and reference year per figure, so the provenance is explicit.
 
 ## Regeneration
 
@@ -38,8 +46,11 @@ the same schema and is not regenerated.
 
 ## Known characteristics
 
-- 250 countries/territories, 215 with a population figure; 175 Natural Earth boundary features
-  are matched, of which 96.6% carry population shading (SC-003 ≥ 95%).
+- 250 countries/territories, 215 with a population figure (86.0% dataset coverage).
+- 174 of the 177 Natural Earth 1:110m boundary features resolve to a snapshot entry; 169 of
+  them (95.5%) carry population shading, so the globe meets SC-003 (≥95% of rendered
+  boundary features shaded). The dataset-wide coverage is tracked separately as a regression
+  floor in `tests/unit/dataset.coverage.test.ts`.
 - 215 countries carry at least one diversity breakdown row; the rest render the explicit
   "diversity data not available" state.
 - Per-dimension shares occasionally do not sum to 100% because the Factbook reports "other"

@@ -16,6 +16,16 @@ test.describe('US3 — find a specific country quickly', () => {
     await expect(suggestion).toBeVisible()
     await suggestion.click()
     await expect(page.getByTestId('detail-panel')).toContainText('Japan')
+
+    // The globe must actually focus Japan, not just open the panel.
+    const globe = page.getByTestId('globe-view')
+    await expect(globe).toHaveAttribute('data-focus-code', 'JPN')
+    await expect
+      .poll(async () => Number(await globe.getAttribute('data-camera-lng')), { timeout: 10_000 })
+      .toBeGreaterThan(125)
+    await expect
+      .poll(async () => Number(await globe.getAttribute('data-camera-lat')), { timeout: 10_000 })
+      .toBeGreaterThan(30)
   })
 
   test('matches accented and duplicate names', async ({ page }) => {

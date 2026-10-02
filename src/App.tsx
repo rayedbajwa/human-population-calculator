@@ -2,6 +2,7 @@ import { lazy, Suspense, useCallback, useEffect, useState } from 'react'
 import type { AppState } from './types'
 import { countryByCode, loadSnapshot } from './lib/dataset'
 import { POPULATION_BUCKETS, NO_DATA_LABEL } from './lib/diversity'
+import { formatPopulation } from './lib/format'
 import { loadSelection, saveSelection } from './lib/persistence'
 import { SearchBox } from './components/SearchBox'
 import { Legend } from './components/Legend'
@@ -28,6 +29,7 @@ const GlobeView = lazy(() =>
 export default function App() {
   const [state, setState] = useState<AppState>(initialState)
   const [reducedMotion, setReducedMotion] = useState(false)
+  const [hoveredCode, setHoveredCode] = useState<string | null>(null)
 
   const load = useCallback(async () => {
     setState((prev) => ({ ...prev, status: 'loading', error: null }))
@@ -98,6 +100,7 @@ export default function App() {
   }
 
   const selected = state.selectedCode ? countryByCode(snapshot, state.selectedCode) : undefined
+  const hovered = hoveredCode ? countryByCode(snapshot, hoveredCode) : undefined
 
   return (
     <div className="pg-app">
@@ -120,10 +123,18 @@ export default function App() {
               countries={snapshot.countries}
               selectedCode={state.selectedCode}
               onSelect={selectCountry}
-              onHover={() => undefined}
+              onHover={setHoveredCode}
               reducedMotion={reducedMotion}
             />
           </Suspense>
+          {hovered && (
+            <div className="pg-hover-readout" data-testid="hover-readout">
+              <strong>{hovered.commonName}</strong>{' '}
+              {hovered.totalPopulation == null
+                ? '(no population data)'
+                : `· ${formatPopulation(hovered.totalPopulation).exact}`}
+            </div>
+          )}
           {!state.hintDismissed && (
             <InteractionHint
               onDismiss={() => setState((prev) => ({ ...prev, hintDismissed: true }))}

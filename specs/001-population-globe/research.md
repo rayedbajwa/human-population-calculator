@@ -32,6 +32,10 @@ Resolves the technology, dataset and integration choices behind [plan.md](./plan
 **Rationale**: Authoritative, citable, consistently covers ~all countries; matches the spec's assumption of a UN/World Bank source and the "most recent year available" default (FR-012). Source name + reference year are stored per country (FR-007).
 **Alternatives considered**: World Bank (good fallback, slightly different country coverage); CIA Factbook population (less authoritative for totals). The fetch script will allow a World Bank fallback if a WPP value is missing.
 
+**Implemented deviation (2026-10-02)**: `scripts/fetch-dataset.ts` uses the World Bank `SP.POP.TOTL`
+indicator exclusively (no keyless UN WPP machine endpoint was available to automate), as
+documented in `data/README.md` under "Population source deviation".
+
 ## 6. Diversity breakdown (named groups + shares)
 
 **Decision**: CIA World Factbook per-country `ethnic groups`, `languages` and `religions` fields, captured as named groups with percentage shares; dimension stored per row.
