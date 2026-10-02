@@ -61,6 +61,8 @@ test.describe('US1 — interactive population globe', () => {
 
     await expect(page.getByTestId('detail-panel')).toContainText('United States')
     await expect(page.getByTestId('population-exact')).toContainText(',')
+    // US1-6: the shortened form is rendered alongside the exact figure.
+    await expect(page.getByTestId('population-short')).toContainText('M')
     await expect(page.getByTestId('population-provenance')).toContainText(/20\d\d/)
   })
 

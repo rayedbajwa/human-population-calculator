@@ -43,6 +43,7 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
   const [reloadKey, setReloadKey] = useState(0)
   const [camera, setCamera] = useState<{ lat: number; lng: number } | null>(null)
   const [focusCode, setFocusCode] = useState<string | null>(null)
+  const [autoRotate, setAutoRotate] = useState(false)
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: reloadKey intentionally re-runs the boundary fetch on retry.
   useEffect(() => {
@@ -98,9 +99,11 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
   useEffect(() => {
     const controls = globeRef.current?.controls?.()
     if (!controls) return
-    controls.autoRotate = !reducedMotion && selectedCode == null && !interacted
+    const enabled = !reducedMotion && selectedCode == null && !interacted
+    controls.autoRotate = enabled
     controls.autoRotateSpeed = 0.4
     controls.enableDamping = true
+    setAutoRotate(enabled)
   }, [reducedMotion, selectedCode, interacted, size.width])
 
   useEffect(() => {
@@ -132,6 +135,7 @@ export function GlobeView({ countries, selectedCode, onSelect, onHover, reducedM
       data-testid="globe-view"
       data-camera-lat={camera ? camera.lat.toFixed(2) : ''}
       data-camera-lng={camera ? camera.lng.toFixed(2) : ''}
+      data-auto-rotate={autoRotate ? 'true' : 'false'}
       data-focus-code={focusCode ?? ''}
       onPointerDown={() => setInteracted(true)}
     >

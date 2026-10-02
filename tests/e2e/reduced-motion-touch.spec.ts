@@ -5,8 +5,12 @@ test.describe('Cross-cutting — reduced motion', () => {
   test('renders the globe with auto-rotation disabled', async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
     await openApp(page)
-    await expect(page.getByTestId('globe-view')).toBeVisible()
+    const globe = page.getByTestId('globe-view')
+    await expect(globe).toBeVisible()
     await expect(page.getByTestId('interaction-hint')).toBeVisible()
+    // The controls' autoRotate flag is exposed so reduced motion is actually
+    // observable, not just claimed by the test name.
+    await expect(globe).toHaveAttribute('data-auto-rotate', 'false')
   })
 })
 
