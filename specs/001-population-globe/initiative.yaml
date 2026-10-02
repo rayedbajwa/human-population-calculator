@@ -1,0 +1,12 @@
+schema: spec-driven
+id: 001-population-globe
+created: 2026-10-02
+updated: 2026-10-02
+project: DEFA-3 · Human population calculator
+artifacts:
+  - spec.md
+  - plan.md
+  - tasks.md
+  - test-plan.md
+  - parallel-workstreams.md
+repositories: []
