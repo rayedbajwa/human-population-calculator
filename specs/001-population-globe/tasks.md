@@ -119,3 +119,29 @@ Re-run record (this iteration): `bun run lint` clean (42 files), `bun run typech
 - Dataset: real World Bank `SP.POP.TOTL` population (215/250 countries) and CIA World Factbook diversity (215/250) captured by `scripts/fetch-dataset.ts`; the diversity indicator is derived from the Factbook ethnic shares and is named as derived (see `data/README.md` for the documented deviation from `research.md`).
 - Toolchain: Vitest 3 (Vite 6 compatibility), React dev build forced in `vitest.config.ts` because the host exports `NODE_ENV=production`, and E2E uses `PLAYWRIGHT_PORT` (default 3454) because the host reserves `PORT`.
 - Baseline: `bun run validate:dataset` (2 files, non-fatal share-sum warnings), `bun run lint` clean, `bun run typecheck`, 81 unit/component tests, `bun run build`, and the Playwright E2E suite all pass via `bun run test:all`.
+
+## Review fixes (2026-10-02, iteration 3)
+
+Addresses the three new MAJOR findings, the MINORs and the NITs in `code-review.md` (`Code Review Status: CHANGES_REQUESTED`). MAJOR 4 (pull request + CI) is a delivery action still awaiting approval.
+
+- [x] T070 [MAJOR] Rewrite Factbook share parsing so ranges (`15-20%` → midpoint), qualifiers (`more than` / `approximately` / `<1%`), HTML entities and the `93/1%` slash-decimal are captured instead of silently dropped; add a `90–110%` per-dimension completeness guard that marks implausible dimensions unavailable; regenerate `data/snapshot.json` (`scripts/factbook-shares.ts`, `scripts/fetch-dataset.ts`, `data/snapshot.json`)
+- [x] T071 [MAJOR] Escalate out-of-window dimension totals from warnings to validator errors and prove the rule with committed tests over the real snapshot and the real Factbook strings (`scripts/validate-dataset.ts`, `tests/unit/factbook-shares.test.ts`, `tests/unit/dataset.quality.test.ts`, `tests/fixtures/snapshot.fixture.json`)
+- [x] T072 [MAJOR] Emit relative asset URLs (`base: './'`) so the GitHub Pages project site renders, and copy only the two runtime dataset files into `dist/data` (`vite.config.ts`)
+- [x] T073 [MINOR] Expose the globe controls' `autoRotate` state and assert it is off under reduced motion; assert the short population form in the E2E selection test (`src/components/GlobeView.tsx`, `tests/e2e/reduced-motion-touch.spec.ts`, `tests/e2e/globe.spec.ts`)
+- [x] T074 [MINOR] Make `Enter` in the search combobox choose the first match when no option is highlighted, with a component test (`src/components/SearchBox.tsx`, `tests/component/SearchBox.test.tsx`)
+- [x] T075 [NIT] Reword the two WIP commits to Conventional Commits with the `population-globe` scope; document the parsing guard and relative base (`data/README.md`, `README.md`)
+
+### Iteration 3 test record
+
+- `bun run lint` clean (45 files); `bun run typecheck` clean.
+- `bun run test` **97 passed / 0 failed** (15 files; +16: 12 `factbook-shares`, 3 `dataset.quality`, 1 SearchBox Enter).
+- `bun run validate:dataset` exit 0 — both files schema-valid; all 485 dimension groups inside 90–110% (only in-window 99–101 rounding warnings remain, no errors).
+- `bun run build` OK; `dist/index.html` uses `./assets/...` and `dist/data/` contains only `snapshot.json` + `countries-110m.topo.json`.
+- Affected Playwright specs (`globe`, `search`, `error-retry`, `reduced-motion-touch`, `diversity`, `performance`) **18 passed / 0 failed**.
+- Sub-path check (manual, reproducible): `dist/` served under `/human-population-calculator/` loaded with Chromium, shaded 169/177 boundary features, all assets and both `data/*.json` requests resolved under the sub-path, no console errors.
+- MAJOR 4 remains open: the remote `origin` has no refs, so T056 needs a push and PR (plus the T057 human review gate) before CI can be read.
+
+### Iteration 3 implementation notes
+
+- Factbook parsing/coverage now lives in `scripts/factbook-shares.ts` so it is unit-tested without network access; the generator imports it.
+- The completeness guard drops a dimension whose parsed shares sum outside 90–110% (partial fields such as `RUS/religious` = 32% and multi-response language censuses such as `TKL/linguistic` = 182.5%). Confirmed after regeneration: 0 of 485 groups outside the window; `RUS/religious` is absent, `IRQ/ethnic` parses to 100.0% from its ranges.
