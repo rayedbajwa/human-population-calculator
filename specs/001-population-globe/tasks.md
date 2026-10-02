@@ -165,3 +165,21 @@ Addresses the MINORs and NITs left in `code-review.md` (`Code Review Status: CHA
 - Regenerated snapshot scan: 0/485 groups out of window, 0 artifact group names; `BRA/religious` "Indigenous religions" is 0.1% (was misread as 6%).
 - `bun run build` OK and now runs the relative-asset guard: `✓ dist/index.html uses relative asset URLs`.
 - E2E not run in this stage (review/verify run it); the E2E-relevant countries are unchanged (USA ethnic+indicator, CIV no diversity, NGA with data).
+
+## Verification-driven tests (2026-10-02, iteration 3)
+
+Closes the automatable gaps in `verification-report.md`; the human-usability parts of SC-001/SC-005 and the deployed UAT (T060) remain manual.
+
+- [x] T081 [SC-001] Add `tests/e2e/discovery.spec.ts`: from a cold start and using only on-screen controls, reach the most populous country (computed from the served snapshot) and assert its exact population is shown. The 60-second human measurement stays a UAT item.
+- [x] T082 [SC-005] Add `tests/component/InteractionHint.test.tsx` asserting the hint documents rotate, zoom and select and is dismissible; the gesture mechanics remain covered by `tests/e2e/globe.spec.ts`.
+- [x] T083 [security] Add `tests/component/DetailPanel.security.test.tsx`: a markup-like country name and group name render as text (no `<script>`/`<img>` element is created).
+- [x] T084 [FR-012 + review NIT] Assert the snapshot's population source year equals the maximum per-country reference year, and extend the label-hygiene regex to reject a residual `&…;` entity (`tests/unit/dataset.quality.test.ts`).
+- [x] T085 Map the new tests in `test-plan.md` (SC-001, SC-005 rows) and record this iteration.
+
+### Iteration 3 test record
+
+- `bun run lint` clean (49 files); `bun run typecheck` clean.
+- Changed unit/component tests: `dataset.quality.test.ts` 5/5, `InteractionHint.test.tsx` 2/2, `DetailPanel.security.test.tsx` 1/1.
+- New E2E `discovery.spec.ts` 1/1.
+- No production code changed in this iteration.
+- Still open: SC-001/SC-005 human-usability validation and the deployed UAT (T060), both blocked on T056–T059 (no PR/CI/deploy).
