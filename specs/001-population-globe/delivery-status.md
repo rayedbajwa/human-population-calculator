@@ -1,12 +1,15 @@
 # Delivery status
-Delivery Status: PARTIAL
-_Generated 2026-10-02T03:58Z · 1 pull request, 1 open_
+Delivery Status: MERGED
+_Generated 2026-10-02T04:16Z · 1 pull request, 0 open_
 
-| Repo | PR | Base | State | CI | Review | Deploy |
-|------|----|------|-------|----|--------|--------|
-| rayedbajwa/human-population-calculator | [#1](https://github.com/rayedbajwa/human-population-calculator/pull/1) | main | open, mergeable `clean` | `CI` #2 success | requested from `rayedbajwa`, none yet | — |
+| Repo | PR | Base | State | CI | Review | Merged at | Deploy |
+|------|----|------|-------|----|--------|-----------|--------|
+| rayedbajwa/human-population-calculator | [#1](https://github.com/rayedbajwa/human-population-calculator/pull/1) | main | merged (`b6a922f`) | CI #3 success | approved | 2026-10-02T04:11Z | GitHub Pages `6801114729` on `github-pages` @ `b6a922f` — success |
 
-Suggested next action: approve and merge PR #1 (T058), then confirm the `deploy.yml` GitHub Pages deployment (T059) and run the UAT checklist (T060).
+Deployed URL: https://rayedbajwa.github.io/human-population-calculator/
+UAT: full Playwright acceptance suite against the deployed URL — 27 passed / 0 failed (2026-10-02T04:15Z).
+
+Suggested next action: none for delivery; SC-005 (human usability study) remains manual.
 
 ## Rules
 - Merge order follows the stack: a PR whose base is another workstream branch merges after that branch's PR.
