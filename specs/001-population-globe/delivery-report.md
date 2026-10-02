@@ -28,7 +28,9 @@ No PR exists. `git ls-remote origin` returns nothing and `GET /repos/.../branche
   - `git push -u origin 001-population-globe` → same `403`.
   - API check `GET /repos/rayedbajwa/human-population-calculator` → `permissions: { admin:false, maintain:false, push:false, triage:false, pull:false }`.
   - `GET /installation/repositories` → `total_count: 1`, only `rayedbajwa/spaces`. The Spaces GitHub App is installed on selected repositories only and does not include this repository.
-- Conclusion: this is the same environmental blocker recorded in `verification-report.md` §5 and `tasks.md` T056/T077. It is not a code defect, and both the installation token and the user-token fallback (`src/lib/github-app-auth.ts`) are scoped to the App's installation repositories, so no in-repo change can lift it.
+- Follow-up after the resume (`continue`): re-checked with a **freshly minted** App installation token (app `spaces-spaces-production-rayed`, installation `163148276`) — `GET /installation/repositories` still returns only `rayedbajwa/spaces`.
+- Tried the connected user's token (user-to-server, `ghu_`, login `rayedbajwa`): `PUT /user/installations/163148276/repositories/1400833092` → `403 Resource not accessible by integration`, because the token is itself scoped to the App's installation repositories. A `git push --dry-run` with that token also returns `403` to the same bot.
+- Conclusion: this is the same environmental blocker recorded in `verification-report.md` §5 and `tasks.md` T056/T077. It is not a code defect: the Spaces GitHub App is installed on selected repositories only, and neither the installation token, the user-token fallback (`src/lib/github-app-auth.ts`), nor the App's own user token can add this repository. Only the repository owner changing the App's repository access on GitHub can lift it.
 
 ## UAT / final acceptance
 
@@ -40,4 +42,4 @@ The only outstanding item is a repository-access fix on GitHub, which I cannot p
 
 ## Next re-check
 
-After the App is granted access (or a writable credential is provided): `git push -u origin main`, `git push -u origin 001-population-globe`, open the PR with a Conventional Commits title, wait for the `ci.yml` gate (`bun run test:all`) and one human approval (T057), then merge (T058), confirm the `deploy.yml` GitHub Pages deployment (T059), and run the `test-plan.md` UAT checklist against the published URL (T060). Re-run the deliver stage to refresh `delivery-status.md` once a PR exists.
+After the owner adds `rayedbajwa/human-population-calculator` to installation `163148276`, or re-installs `spaces-spaces-production-rayed` with all repositories: `git push -u origin main`, `git push -u origin 001-population-globe`, open the PR with a Conventional Commits title, wait for the `ci.yml` gate (`bun run test:all`) and one human approval (T057), then merge (T058), confirm the `deploy.yml` GitHub Pages deployment (T059), and run the `test-plan.md` UAT checklist against the published URL (T060). Re-run the deliver stage to refresh `delivery-status.md` once a PR exists.
