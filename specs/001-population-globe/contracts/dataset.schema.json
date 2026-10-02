@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rayedbajwa.github.io/human-population-calculator/contracts/dataset.schema.json",
+  "title": "Population Globe Dataset Snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "retrievedDate", "sources", "countries"],
+  "properties": {
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "retrievedDate": { "type": "string", "format": "date" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "url", "license", "referenceYear"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "format": "uri" },
+          "license": { "type": "string", "minLength": 1 },
+          "referenceYear": { "type": "integer", "minimum": 1900, "maximum": 2100 }
+        }
+      }
+    },
+    "countries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["code", "name", "commonName", "region"],
+        "properties": {
+          "code": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "name": { "type": "string", "minLength": 1 },
+          "commonName": { "type": "string", "minLength": 1 },
+          "aliases": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+          "region": { "type": "string", "minLength": 1 },
+          "boundaryId": { "type": "string", "minLength": 1 },
+          "totalPopulation": { "type": ["integer", "null"], "minimum": 0 },
+          "populationSourceId": { "type": "string", "minLength": 1 },
+          "populationReferenceYear": { "type": "integer", "minimum": 1900, "maximum": 2100 },
+          "diversityBreakdown": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["dimension", "groupName", "share", "sourceId", "referenceYear"],
+              "properties": {
+                "dimension": { "enum": ["ethnic", "linguistic", "religious"] },
+                "groupName": { "type": "string", "minLength": 1 },
+                "share": { "type": "number", "minimum": 0, "maximum": 100 },
+                "sourceId": { "type": "string", "minLength": 1 },
+                "referenceYear": { "type": "integer", "minimum": 1900, "maximum": 2100 }
+              }
+            }
+          },
+          "diversityIndicator": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "required": ["name", "value", "scaleMin", "scaleMax", "sourceId", "referenceYear"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "value": { "type": "number" },
+              "scaleMin": { "type": "number" },
+              "scaleMax": { "type": "number" },
+              "sourceId": { "type": "string", "minLength": 1 },
+              "referenceYear": { "type": "integer", "minimum": 1900, "maximum": 2100 }
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "totalPopulation": { "type": "integer" } }, "required": ["totalPopulation"] },
+            "then": { "required": ["populationSourceId", "populationReferenceYear"] }
+          },
+          {
+            "if": { "properties": { "diversityIndicator": { "type": "object" } }, "required": ["diversityIndicator"] },
+            "then": { "properties": { "diversityIndicator": { "required": ["name", "value", "scaleMin", "scaleMax", "sourceId", "referenceYear"] } } }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun-debug.log*
+
+# env files and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# test / coverage artifacts
+coverage/
+test-results/
+playwright-report/
+playwright/.cache/
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
