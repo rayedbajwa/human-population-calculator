@@ -59,4 +59,17 @@ describe('committed snapshot share quality', () => {
     ).length
     expect(withDiversity).toBeGreaterThanOrEqual(150)
   })
+
+  it('ships only clean, human-readable group labels', () => {
+    const artifact = /^(?:and|or|the|of|with|including)\b|[~.)\s–-]+$|\s{2,}/
+    const offenders: string[] = []
+    for (const country of snapshot.countries) {
+      for (const row of country.diversityBreakdown) {
+        if (!row.groupName || artifact.test(row.groupName)) {
+          offenders.push(`${country.code}/${row.dimension}: ${JSON.stringify(row.groupName)}`)
+        }
+      }
+    }
+    expect(offenders).toEqual([])
+  })
 })

@@ -62,7 +62,10 @@ export function decodeEntities(text: string): string {
   return text
     .replace(/&#x([0-9a-f]+);/gi, (_, hex: string) => String.fromCodePoint(Number.parseInt(hex, 16)))
     .replace(/&#(\d+);/g, (_, dec: string) => String.fromCodePoint(Number(dec)))
-    .replace(/&[a-z]+;/gi, (entity) => NAMED_ENTITIES[entity.toLowerCase()] ?? ' ')
+    // Unknown named entities are left intact rather than collapsed to a space,
+    // so a missing mapping is visible in the data instead of silently changing
+    // the label.
+    .replace(/&[a-z]+;/gi, (entity) => NAMED_ENTITIES[entity.toLowerCase()] ?? entity)
 }
 
 /** Strip HTML tags/entities and collapse whitespace. */
@@ -73,7 +76,9 @@ export function stripHtml(value: string): string {
 }
 
 const MODIFIER = /\b(?:approximately|about|around|nearly|roughly|over|under|more than|less than|up to|some)\b/gi
-const NUMBER = String.raw`\d+(?:[./]\d+)?`
+// A share token: `15`, `15.5`, `93/1` (slash decimal) or a leading-dot
+// decimal such as `.06`.
+const NUMBER = String.raw`(?:\d+(?:[./]\d+)?|\.\d+)`
 const SHARE_PATTERN = new RegExp(String.raw`(${NUMBER})(?:\s*[-–]\s*(${NUMBER}))?\s*%`)
 
 function parseNumeric(token: string): number {
@@ -85,7 +90,12 @@ function cleanGroupName(raw: string): string {
   return raw
     .replace(MODIFIER, ' ')
     .replace(/[<>]/g, ' ')
-    .replace(/[-–\s]+$/, '')
+    .trim()
+    // Factbook text carries conjunction prefixes, a trailing tilde used as
+    // "approximately", unmatched closing parentheses and full stops. Left in
+    // place they ship as malformed group names (e.g. "and other", "Arab ~").
+    .replace(/^(?:and|or|the|of|with|including)\s+/i, '')
+    .replace(/[~.)\s–-]+$/, '')
     .replace(/\s+/g, ' ')
     .trim()
 }

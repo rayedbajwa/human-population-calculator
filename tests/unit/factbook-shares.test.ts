@@ -62,6 +62,28 @@ describe('parseShares', () => {
     expect(dimensionTotal(rows)).toBeCloseTo(101.6, 1)
   })
 
+  it('strips conjunction prefixes and trailing label artifacts', () => {
+    expect(
+      parseShares('Greenlandic 88.1%, Danish 7.1%, and other 4.8%').map((row) => row.groupName),
+    ).toEqual(['Greenlandic', 'Danish', 'other'])
+    expect(parseShares('Arab ~65%, Kurdish ~20%, other ~15%').map((row) => row.groupName)).toEqual([
+      'Arab',
+      'Kurdish',
+      'other',
+    ])
+    expect(
+      parseShares('Danish and Faroese) 90%, other 10%').map((row) => row.groupName),
+    ).toEqual(['Danish and Faroese', 'other'])
+  })
+
+  it('parses a leading-dot decimal share without inflating it', () => {
+    expect(parseShares('Indigenous religions .06%, other 99.94%')).toEqual([
+      // `.06` is rounded to the snapshot's one-decimal precision, not read as 6.
+      { groupName: 'Indigenous religions', share: 0.1 },
+      { groupName: 'other', share: 99.9 },
+    ])
+  })
+
   it('returns nothing for a text-only field with no shares', () => {
     expect(parseShares('Greenlandic, Danish, English')).toEqual([])
   })
@@ -70,6 +92,10 @@ describe('parseShares', () => {
 describe('decodeEntities', () => {
   it('decodes named, decimal and hex entities', () => {
     expect(decodeEntities('Esp&iacute;rita &lt; 0.1 &#37; &#x25;')).toBe('Espírita < 0.1 % %')
+  })
+
+  it('leaves an unknown named entity intact instead of deleting it', () => {
+    expect(decodeEntities('A&unknownent;B')).toBe('A&unknownent;B')
   })
 })
 

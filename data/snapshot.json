@@ -2996,7 +2996,7 @@
         },
         {
           "dimension": "ethnic",
-          "groupName": "including Kgalagadi and people of European ancestry",
+          "groupName": "Kgalagadi and people of European ancestry",
           "share": 7,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
@@ -3226,8 +3226,8 @@
         },
         {
           "dimension": "religious",
-          "groupName": "Indigenous religions .",
-          "share": 6,
+          "groupName": "Indigenous religions",
+          "share": 0.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2022
         },
@@ -6477,7 +6477,7 @@
       "diversityBreakdown": [
         {
           "dimension": "ethnic",
-          "groupName": "Danish and Faroese)",
+          "groupName": "Danish and Faroese",
           "share": 84.2,
           "sourceId": "cia-factbook",
           "referenceYear": 2023
@@ -7181,7 +7181,7 @@
         },
         {
           "dimension": "linguistic",
-          "groupName": "Fa d'Ambo spoken in Annobon)",
+          "groupName": "Fa d'Ambo spoken in Annobon",
           "share": 32.4,
           "sourceId": "cia-factbook",
           "referenceYear": 1994
@@ -9119,7 +9119,7 @@
         },
         {
           "dimension": "ethnic",
-          "groupName": "and other",
+          "groupName": "other",
           "share": 2.3,
           "sourceId": "cia-factbook",
           "referenceYear": 2024
@@ -10490,7 +10490,7 @@
         },
         {
           "dimension": "ethnic",
-          "groupName": "and other",
+          "groupName": "other",
           "share": 3,
           "sourceId": "cia-factbook",
           "referenceYear": 2000
@@ -17565,7 +17565,7 @@
         },
         {
           "dimension": "linguistic",
-          "groupName": "other and Bosnian)",
+          "groupName": "other and Bosnian",
           "share": 2,
           "sourceId": "cia-factbook",
           "referenceYear": 2021
@@ -18969,7 +18969,7 @@
         },
         {
           "dimension": "ethnic",
-          "groupName": "and South America and other foreign born",
+          "groupName": "South America and other foreign born",
           "share": 5,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
@@ -21780,7 +21780,7 @@
         },
         {
           "dimension": "religious",
-          "groupName": "or other traditional African religions",
+          "groupName": "other traditional African religions",
           "share": 5.4,
           "sourceId": "cia-factbook",
           "referenceYear": 2015
@@ -21885,7 +21885,7 @@
         },
         {
           "dimension": "linguistic",
-          "groupName": "other and Khoi or Khoisan or Khoe languages)",
+          "groupName": "other and Khoi or Khoisan or Khoe languages",
           "share": 2,
           "sourceId": "cia-factbook",
           "referenceYear": 2018
@@ -22655,35 +22655,35 @@
       "diversityBreakdown": [
         {
           "dimension": "ethnic",
-          "groupName": "Arab ~",
+          "groupName": "Arab",
           "share": 50,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         },
         {
           "dimension": "ethnic",
-          "groupName": "Alawite ~",
+          "groupName": "Alawite",
           "share": 15,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         },
         {
           "dimension": "ethnic",
-          "groupName": "Kurd ~",
+          "groupName": "Kurd",
           "share": 10,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         },
         {
           "dimension": "ethnic",
-          "groupName": "Levantine ~",
+          "groupName": "Levantine",
           "share": 10,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         },
         {
           "dimension": "ethnic",
-          "groupName": "other ~",
+          "groupName": "other",
           "share": 15,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
