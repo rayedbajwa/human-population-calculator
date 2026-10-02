@@ -61,7 +61,7 @@ describe('committed snapshot share quality', () => {
   })
 
   it('ships only clean, human-readable group labels', () => {
-    const artifact = /^(?:and|or|the|of|with|including)\b|[~.)\s–-]+$|\s{2,}/
+    const artifact = /^(?:and|or|the|of|with|including)\b|[~.)\s–-]+$|\s{2,}|&[a-z]+;/i
     const offenders: string[] = []
     for (const country of snapshot.countries) {
       for (const row of country.diversityBreakdown) {
@@ -71,5 +71,16 @@ describe('committed snapshot share quality', () => {
       }
     }
     expect(offenders).toEqual([])
+  })
+
+  it('uses the most recent population reference year as the source year (FR-012)', () => {
+    const populationSource = snapshot.sources.find((source) => source.id === 'worldbank-population')
+    expect(populationSource).toBeDefined()
+    const years = snapshot.countries
+      .filter((country) => country.totalPopulation != null)
+      .map((country) => country.populationReferenceYear)
+    expect(years.length).toBeGreaterThan(0)
+    expect(Math.max(...(years as number[]))).toBe(populationSource!.referenceYear)
+    expect(years.every((year) => year != null && year <= populationSource!.referenceYear)).toBe(true)
   })
 })
