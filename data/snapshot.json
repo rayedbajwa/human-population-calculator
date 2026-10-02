@@ -43,74 +43,11 @@
           "referenceYear": 2009
         },
         {
-          "dimension": "linguistic",
-          "groupName": "Afghan Persian or Dari",
-          "share": 77,
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 0.3,
           "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Pashto",
-          "share": 48,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Uzbeki",
-          "share": 11,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Turkmani",
-          "share": 3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Urdu",
-          "share": 3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Pashaie",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Nuristani",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Arabic",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Balochi",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
+          "referenceYear": 2009
         }
       ],
       "diversityIndicator": null
@@ -289,14 +226,35 @@
           "referenceYear": 2020
         },
         {
+          "dimension": "ethnic",
+          "groupName": "European",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
           "dimension": "religious",
           "groupName": "Muslim",
           "share": 99,
           "sourceId": "cia-factbook",
           "referenceYear": 2012
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2012
         }
       ],
-      "diversityIndicator": null
+      "diversityIndicator": {
+        "name": "Ethnic fractionalisation (derived from CIA World Factbook shares)",
+        "value": 0.02,
+        "scaleMin": 0,
+        "scaleMax": 1,
+        "sourceId": "cia-factbook",
+        "referenceYear": 2020
+      }
     },
     {
       "code": "ASM",
@@ -346,6 +304,20 @@
           "dimension": "religious",
           "groupName": "Christian",
           "share": 98.3,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "unaffiliated",
+          "share": 1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         },
@@ -450,62 +422,6 @@
           "share": 18,
           "sourceId": "cia-factbook",
           "referenceYear": 2024
-        },
-        {
-          "dimension": "religious",
-          "groupName": "other",
-          "share": 8.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "unaffiliated",
-          "share": 1.7,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Catalan",
-          "share": 44.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Castilian",
-          "share": 40.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Portuguese",
-          "share": 13.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "French",
-          "share": 10,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 6.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
         }
       ],
       "diversityIndicator": {
@@ -600,90 +516,6 @@
           "dimension": "religious",
           "groupName": "none",
           "share": 12.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Portuguese",
-          "share": 71.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Umbundu",
-          "share": 23,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Kikongo",
-          "share": 8.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Kimbundu",
-          "share": 7.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Chokwe",
-          "share": 6.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Nhaneca",
-          "share": 3.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Nganguela",
-          "share": 3.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Fiote",
-          "share": 2.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Kwanhama",
-          "share": 2.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Muhumbi",
-          "share": 2.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Luvale",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2014
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 3.6,
           "sourceId": "cia-factbook",
           "referenceYear": 2014
         }
@@ -946,7 +778,7 @@
       "diversityBreakdown": [
         {
           "dimension": "ethnic",
-          "groupName": "European  and Mestizo",
+          "groupName": "European and Mestizo",
           "share": 97.2,
           "sourceId": "cia-factbook",
           "referenceYear": 2010
@@ -2250,6 +2082,13 @@
           "share": 40,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
+        },
+        {
+          "dimension": "linguistic",
+          "groupName": "German",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
         }
       ],
       "diversityIndicator": {
@@ -2384,62 +2223,6 @@
           "dimension": "religious",
           "groupName": "none",
           "share": 15.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2010
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 62.9,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2010
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Spanish",
-          "share": 56.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2010
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Creole",
-          "share": 44.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2010
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Maya",
-          "share": 10.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2010
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "German",
-          "share": 3.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2010
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Garifuna",
-          "share": 2.9,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2010
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 1.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2010
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "unknown",
-          "share": 0.5,
           "sourceId": "cia-factbook",
           "referenceYear": 2010
         }
@@ -3436,8 +3219,15 @@
         },
         {
           "dimension": "religious",
-          "groupName": "Indigenous religions",
-          "share": 0.1,
+          "groupName": "Umbanda and Candomblé",
+          "share": 1.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2022
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Indigenous religions .",
+          "share": 6,
           "sourceId": "cia-factbook",
           "referenceYear": 2022
         },
@@ -4517,62 +4307,6 @@
           "share": 34.6,
           "sourceId": "cia-factbook",
           "referenceYear": 2021
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 87.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "French",
-          "share": 29.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Chinese languages",
-          "share": 4.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Spanish",
-          "share": 3.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Punjabi",
-          "share": 2.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Arabic",
-          "share": 2.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Tagalog",
-          "share": 2.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Italian",
-          "share": 1.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
         }
       ],
       "diversityIndicator": {
@@ -5078,6 +4812,13 @@
         },
         {
           "dimension": "ethnic",
+          "groupName": "other",
+          "share": 4.6,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2014
+        },
+        {
+          "dimension": "ethnic",
           "groupName": "unspecified",
           "share": 1.7,
           "sourceId": "cia-factbook",
@@ -5135,7 +4876,7 @@
       ],
       "diversityIndicator": {
         "name": "Ethnic fractionalisation (derived from CIA World Factbook shares)",
-        "value": 0.871,
+        "value": 0.869,
         "scaleMin": 0,
         "scaleMax": 1,
         "sourceId": "cia-factbook",
@@ -5219,41 +4960,6 @@
           "share": 1.3,
           "sourceId": "cia-factbook",
           "referenceYear": 2024
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Spanish",
-          "share": 99.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 10.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Indigenous",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 2.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "unspecified",
-          "share": 0.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
         }
       ],
       "diversityIndicator": {
@@ -5324,6 +5030,20 @@
           "dimension": "religious",
           "groupName": "Muslim",
           "share": 1.8,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2021
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Hindu",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2021
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Jewish",
+          "share": 0.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2021
         },
@@ -5659,13 +5379,6 @@
         },
         {
           "dimension": "religious",
-          "groupName": "0.2%. agnostic",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
           "groupName": "atheist",
           "share": 1,
           "sourceId": "cia-factbook",
@@ -5876,27 +5589,6 @@
           "share": 15.6,
           "sourceId": "cia-factbook",
           "referenceYear": 2021
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 86.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Cook Islands Maori",
-          "share": 76.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 8.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
         }
       ],
       "diversityIndicator": {
@@ -6209,6 +5901,41 @@
           "dimension": "religious",
           "groupName": "folk religion",
           "share": 17.6,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Buddhist",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Hindu",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Jewish",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Muslim",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         },
@@ -6750,7 +6477,7 @@
       "diversityBreakdown": [
         {
           "dimension": "ethnic",
-          "groupName": "Danish  and Faroese)",
+          "groupName": "Danish and Faroese)",
           "share": 84.2,
           "sourceId": "cia-factbook",
           "referenceYear": 2023
@@ -7012,11 +6739,11 @@
       "populationReferenceYear": 2025,
       "diversityBreakdown": [
         {
-          "dimension": "ethnic",
-          "groupName": "and the Mangbetu-Azande  - make up about",
-          "share": 45,
+          "dimension": "religious",
+          "groupName": "Christian",
+          "share": 93.1,
           "sourceId": "cia-factbook",
-          "referenceYear": 2020
+          "referenceYear": 2014
         },
         {
           "dimension": "religious",
@@ -9290,6 +9017,13 @@
         },
         {
           "dimension": "religious",
+          "groupName": "Greek Orthodox",
+          "share": 85.5,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2015
+        },
+        {
+          "dimension": "religious",
           "groupName": "Muslim",
           "share": 2,
           "sourceId": "cia-factbook",
@@ -9299,6 +9033,13 @@
           "dimension": "religious",
           "groupName": "other",
           "share": 3,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2015
+        },
+        {
+          "dimension": "religious",
+          "groupName": "none",
+          "share": 9.5,
           "sourceId": "cia-factbook",
           "referenceYear": 2015
         },
@@ -10478,6 +10219,13 @@
           "share": 2,
           "sourceId": "cia-factbook",
           "referenceYear": 2021
+        },
+        {
+          "dimension": "linguistic",
+          "groupName": "persons 5 or mute",
+          "share": 3.2,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2021
         }
       ],
       "diversityIndicator": {
@@ -10586,55 +10334,6 @@
           "share": 40.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Hungarian",
-          "share": 98.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 25.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "German",
-          "share": 12.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Russian",
-          "share": 2.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "French",
-          "share": 1.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Romanian",
-          "share": 1.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 5.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2022
         }
       ],
       "diversityIndicator": {
@@ -10735,7 +10434,7 @@
         },
         {
           "dimension": "religious",
-          "groupName": "other  or unspecified",
+          "groupName": "other or unspecified",
           "share": 18.7,
           "sourceId": "cia-factbook",
           "referenceYear": 2024
@@ -11186,6 +10885,20 @@
       "diversityBreakdown": [
         {
           "dimension": "ethnic",
+          "groupName": "Arab",
+          "share": 77.5,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "ethnic",
+          "groupName": "Kurdish",
+          "share": 17.5,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "ethnic",
           "groupName": "other",
           "share": 5,
           "sourceId": "cia-factbook",
@@ -11193,13 +10906,34 @@
         },
         {
           "dimension": "religious",
+          "groupName": "Muslim",
+          "share": 96.5,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2015
+        },
+        {
+          "dimension": "religious",
           "groupName": "Christian",
           "share": 1,
           "sourceId": "cia-factbook",
           "referenceYear": 2015
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 2.5,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2015
         }
       ],
-      "diversityIndicator": null
+      "diversityIndicator": {
+        "name": "Ethnic fractionalisation (derived from CIA World Factbook shares)",
+        "value": 0.366,
+        "scaleMin": 0,
+        "scaleMax": 1,
+        "sourceId": "cia-factbook",
+        "referenceYear": 2020
+      }
     },
     {
       "code": "IRL",
@@ -12009,6 +11743,34 @@
           "share": 0.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Jewish",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "folk",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "unaffiliated",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
         }
       ],
       "diversityIndicator": {
@@ -12142,27 +11904,6 @@
           "dimension": "religious",
           "groupName": "unspecified",
           "share": 11,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2021
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Kazakh",
-          "share": 80.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2021
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Russian",
-          "share": 83.7,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2021
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 35.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2021
         }
@@ -12307,6 +12048,13 @@
           "dimension": "religious",
           "groupName": "none",
           "share": 1.6,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2019
+        },
+        {
+          "dimension": "religious",
+          "groupName": "don't know/no answer",
+          "share": 0.2,
           "sourceId": "cia-factbook",
           "referenceYear": 2019
         }
@@ -13389,13 +13137,6 @@
           "share": 2.6,
           "sourceId": "cia-factbook",
           "referenceYear": 2022
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 20,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
         }
       ],
       "diversityIndicator": {
@@ -13448,6 +13189,48 @@
           "dimension": "religious",
           "groupName": "Christian",
           "share": 2.7,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Buddhist",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Hindu",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Jewish",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "folk religion",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "unaffiliated",
+          "share": 1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         }
@@ -14179,34 +13962,6 @@
           "share": 21.9,
           "sourceId": "cia-factbook",
           "referenceYear": 2021
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Malagasy",
-          "share": 99.9,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "French",
-          "share": 23.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 8.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 0.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
         }
       ],
       "diversityIndicator": null
@@ -14615,90 +14370,6 @@
           "share": 2.5,
           "sourceId": "cia-factbook",
           "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "French",
-          "share": 17.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Peuhl/Foulfoulbe/Fulani",
-          "share": 9.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Dogon",
-          "share": 7.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Maraka/Soninke",
-          "share": 6.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Malinke",
-          "share": 5.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Sonrhai/Djerma",
-          "share": 5.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Minianka",
-          "share": 4.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Tamacheq",
-          "share": 3.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Senoufo",
-          "share": 2.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Bobo",
-          "share": 2.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 6.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "unspecified",
-          "share": 0.7,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2009
         }
       ],
       "diversityIndicator": {
@@ -14725,6 +14396,13 @@
       "populationSourceId": "worldbank-population",
       "populationReferenceYear": 2025,
       "diversityBreakdown": [
+        {
+          "dimension": "religious",
+          "groupName": "Roman Catholic",
+          "share": 90,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2006
+        },
         {
           "dimension": "linguistic",
           "groupName": "Maltese",
@@ -15261,6 +14939,13 @@
         {
           "dimension": "religious",
           "groupName": "other",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2014
+        },
+        {
+          "dimension": "religious",
+          "groupName": "agnostic",
           "share": 0.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2014
@@ -17092,83 +16777,6 @@
       "populationReferenceYear": 2025,
       "diversityBreakdown": [
         {
-          "dimension": "ethnic",
-          "groupName": "European",
-          "share": 64.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Maori",
-          "share": 16.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Chinese",
-          "share": 4.9,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Indian",
-          "share": 4.7,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Samoan",
-          "share": 3.9,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Tongan",
-          "share": 1.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Cook Islands Maori",
-          "share": 1.7,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "English",
-          "share": 1.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Filipino",
-          "share": 1.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "New Zealander",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "other",
-          "share": 13.7,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
           "dimension": "religious",
           "groupName": "Christian",
           "share": 37.3,
@@ -17216,79 +16824,9 @@
           "share": 6.7,
           "sourceId": "cia-factbook",
           "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 95.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Maori",
-          "share": 4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Samoan",
-          "share": 2.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Northern Chinese",
-          "share": 2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Hindi",
-          "share": 1.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "French",
-          "share": 1.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Yue",
-          "share": 1.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "New Zealand Sign Language",
-          "share": 0.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other or not stated",
-          "share": 17.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2018
         }
       ],
-      "diversityIndicator": {
-        "name": "Ethnic fractionalisation (derived from CIA World Factbook shares)",
-        "value": 0.536,
-        "scaleMin": 0,
-        "scaleMax": 1,
-        "sourceId": "cia-factbook",
-        "referenceYear": 2018
-      }
+      "diversityIndicator": null
     },
     {
       "code": "NIC",
@@ -17802,41 +17340,6 @@
       "totalPopulation": null,
       "diversityBreakdown": [
         {
-          "dimension": "ethnic",
-          "groupName": "Australian",
-          "share": 22.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "English",
-          "share": 22.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Pitcairn Islander",
-          "share": 20,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Scottish",
-          "share": 6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
-        },
-        {
-          "dimension": "ethnic",
-          "groupName": "Irish",
-          "share": 5.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
-        },
-        {
           "dimension": "religious",
           "groupName": "Protestant",
           "share": 46.8,
@@ -17914,14 +17417,7 @@
           "referenceYear": 2016
         }
       ],
-      "diversityIndicator": {
-        "name": "Ethnic fractionalisation (derived from CIA World Factbook shares)",
-        "value": 0.852,
-        "scaleMin": 0,
-        "scaleMax": 1,
-        "sourceId": "cia-factbook",
-        "referenceYear": 2011
-      }
+      "diversityIndicator": null
     },
     {
       "code": "PRK",
@@ -18069,7 +17565,7 @@
         },
         {
           "dimension": "linguistic",
-          "groupName": "other  and Bosnian)",
+          "groupName": "other and Bosnian)",
           "share": 2,
           "sourceId": "cia-factbook",
           "referenceYear": 2021
@@ -18834,6 +18330,27 @@
         },
         {
           "dimension": "religious",
+          "groupName": "Evangelical Pentecostal",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2023
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Adventist",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2023
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Protestant",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2023
+        },
+        {
+          "dimension": "religious",
           "groupName": "Believer",
           "share": 5.7,
           "sourceId": "cia-factbook",
@@ -18843,6 +18360,13 @@
           "dimension": "religious",
           "groupName": "other",
           "share": 0.6,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2023
+        },
+        {
+          "dimension": "religious",
+          "groupName": "agnostic",
+          "share": 0.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2023
         },
@@ -18862,7 +18386,7 @@
         },
         {
           "dimension": "linguistic",
-          "groupName": "Spanish  and Guarani",
+          "groupName": "Spanish and Guarani",
           "share": 46.3,
           "sourceId": "cia-factbook",
           "referenceYear": 2012
@@ -19445,7 +18969,7 @@
         },
         {
           "dimension": "ethnic",
-          "groupName": "and South America  and other foreign born",
+          "groupName": "and South America and other foreign born",
           "share": 5,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
@@ -19645,6 +19169,34 @@
           "dimension": "religious",
           "groupName": "Buddhist",
           "share": 3.8,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "folk religion",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Jewish",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "unaffiliated",
+          "share": 1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         }
@@ -20046,13 +19598,6 @@
           "referenceYear": 2010
         },
         {
-          "dimension": "religious",
-          "groupName": "other Christian",
-          "share": 2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2006
-        },
-        {
           "dimension": "linguistic",
           "groupName": "Russian",
           "share": 85.7,
@@ -20166,6 +19711,27 @@
           "dimension": "linguistic",
           "groupName": "Kinyarwanda",
           "share": 93.2,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2002
+        },
+        {
+          "dimension": "linguistic",
+          "groupName": "French",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2002
+        },
+        {
+          "dimension": "linguistic",
+          "groupName": "English",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2002
+        },
+        {
+          "dimension": "linguistic",
+          "groupName": "Swahili/Kiswahili",
+          "share": 0.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2002
         },
@@ -20783,62 +20349,6 @@
           "dimension": "religious",
           "groupName": "unspecified",
           "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Portuguese",
-          "share": 98.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Forro",
-          "share": 36.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Cabo Verdian",
-          "share": 8.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "French",
-          "share": 6.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Angolar",
-          "share": 6.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 4.9,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Lunguie",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 2.4,
           "sourceId": "cia-factbook",
           "referenceYear": 2012
         }
@@ -22375,7 +21885,7 @@
         },
         {
           "dimension": "linguistic",
-          "groupName": "other  and Khoi or Khoisan or Khoe languages)",
+          "groupName": "other and Khoi or Khoisan or Khoe languages)",
           "share": 2,
           "sourceId": "cia-factbook",
           "referenceYear": 2018
@@ -22468,13 +21978,6 @@
       "populationReferenceYear": 2025,
       "diversityBreakdown": [
         {
-          "dimension": "ethnic",
-          "groupName": "Nuer  approximately",
-          "share": 15,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2011
-        },
-        {
           "dimension": "religious",
           "groupName": "Christian",
           "share": 60.5,
@@ -22492,6 +21995,20 @@
           "dimension": "religious",
           "groupName": "Muslim",
           "share": 6.2,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "unaffiliated",
+          "share": 1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         }
@@ -22713,27 +22230,6 @@
           "dimension": "religious",
           "groupName": "other",
           "share": 0.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Sinhala",
-          "share": 87,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Tamil",
-          "share": 28.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2012
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 23.8,
           "sourceId": "cia-factbook",
           "referenceYear": 2012
         }
@@ -23130,76 +22626,6 @@
           "share": 1.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "German",
-          "share": 62.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "French",
-          "share": 22.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Italian",
-          "share": 8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 5.7,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Portuguese",
-          "share": 3.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Albanian",
-          "share": 3.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Serbo-Croatian",
-          "share": 2.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Spanish",
-          "share": 2.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Romansh",
-          "share": 0.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 7.9,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2019
         }
       ],
       "diversityIndicator": {
@@ -23228,6 +22654,41 @@
       "populationReferenceYear": 2025,
       "diversityBreakdown": [
         {
+          "dimension": "ethnic",
+          "groupName": "Arab ~",
+          "share": 50,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "ethnic",
+          "groupName": "Alawite ~",
+          "share": 15,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "ethnic",
+          "groupName": "Kurd ~",
+          "share": 10,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "ethnic",
+          "groupName": "Levantine ~",
+          "share": 10,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "ethnic",
+          "groupName": "other ~",
+          "share": 15,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
           "dimension": "religious",
           "groupName": "Muslim",
           "share": 87,
@@ -23249,7 +22710,14 @@
           "referenceYear": 2020
         }
       ],
-      "diversityIndicator": null
+      "diversityIndicator": {
+        "name": "Ethnic fractionalisation (derived from CIA World Factbook shares)",
+        "value": 0.685,
+        "scaleMin": 0,
+        "scaleMax": 1,
+        "sourceId": "cia-factbook",
+        "referenceYear": 2020
+      }
     },
     {
       "code": "TWN",
@@ -23269,6 +22737,13 @@
       "boundaryId": "158",
       "totalPopulation": null,
       "diversityBreakdown": [
+        {
+          "dimension": "ethnic",
+          "groupName": "Han Chinese",
+          "share": 95,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
         {
           "dimension": "ethnic",
           "groupName": "indigenous Malayo-Polynesian peoples",
@@ -23299,7 +22774,7 @@
         },
         {
           "dimension": "religious",
-          "groupName": "folk religion  approximately",
+          "groupName": "folk religion",
           "share": 10,
           "sourceId": "cia-factbook",
           "referenceYear": 2005
@@ -23312,7 +22787,14 @@
           "referenceYear": 2005
         }
       ],
-      "diversityIndicator": null
+      "diversityIndicator": {
+        "name": "Ethnic fractionalisation (derived from CIA World Factbook shares)",
+        "value": 0.097,
+        "scaleMin": 0,
+        "scaleMax": 1,
+        "sourceId": "cia-factbook",
+        "referenceYear": 2020
+      }
     },
     {
       "code": "TJK",
@@ -23459,6 +22941,34 @@
         },
         {
           "dimension": "religious",
+          "groupName": "Buddhist",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Hindu",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Jewish",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
           "groupName": "unspecified",
           "share": 1.6,
           "sourceId": "cia-factbook",
@@ -23515,6 +23025,13 @@
           "referenceYear": 2015
         },
         {
+          "dimension": "ethnic",
+          "groupName": "unspecified",
+          "share": 0.1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2015
+        },
+        {
           "dimension": "religious",
           "groupName": "Buddhist",
           "share": 92.5,
@@ -23544,7 +23061,7 @@
         },
         {
           "dimension": "linguistic",
-          "groupName": "Thai  only",
+          "groupName": "Thai only",
           "share": 90.7,
           "sourceId": "cia-factbook",
           "referenceYear": 2010
@@ -23817,6 +23334,34 @@
         },
         {
           "dimension": "religious",
+          "groupName": "Hindu",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Buddhist",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Jewish",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
           "groupName": "none",
           "share": 6.2,
           "sourceId": "cia-factbook",
@@ -23929,62 +23474,6 @@
         },
         {
           "dimension": "religious",
-          "groupName": "unspecified",
-          "share": 0.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2016
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Tokelauan",
-          "share": 88.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2016
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "English",
-          "share": 48.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2016
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Samoan",
-          "share": 26.7,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2016
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Tuvaluan",
-          "share": 11.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2016
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "Kiribati",
-          "share": 1.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2016
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "other",
-          "share": 2.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2016
-        },
-        {
-          "dimension": "linguistic",
-          "groupName": "none",
-          "share": 2.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2016
-        },
-        {
-          "dimension": "linguistic",
           "groupName": "unspecified",
           "share": 0.8,
           "sourceId": "cia-factbook",
@@ -24267,6 +23756,13 @@
           "share": 99,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
         }
       ],
       "diversityIndicator": {
@@ -24351,6 +23847,41 @@
           "dimension": "religious",
           "groupName": "Christian",
           "share": 6.4,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Buddhist",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "folk religion",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "Jewish",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "other",
+          "share": 1,
+          "sourceId": "cia-factbook",
+          "referenceYear": 2020
+        },
+        {
+          "dimension": "religious",
+          "groupName": "unspecified",
+          "share": 1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         },
@@ -25210,132 +24741,6 @@
           "share": 5,
           "sourceId": "cia-factbook",
           "referenceYear": 2011
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Roman Catholic",
-          "share": 36.5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Protestant",
-          "share": 5,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Adventist",
-          "share": 0.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Protestant",
-          "share": 0.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "African American Cults/Umbanda",
-          "share": 2.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Jehovah's Witness",
-          "share": 0.6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Church of Jesus Christ",
-          "share": 0.2,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "other",
-          "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Believer",
-          "share": 1.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "agnostic",
-          "share": 0.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "atheist",
-          "share": 1.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "none",
-          "share": 47.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "unspecified",
-          "share": 3.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Protestant",
-          "share": 15,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "other",
-          "share": 6,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "agnostic",
-          "share": 3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "atheist",
-          "share": 10,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
-        },
-        {
-          "dimension": "religious",
-          "groupName": "unspecified",
-          "share": 24,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2023
         }
       ],
       "diversityIndicator": {
@@ -25500,62 +24905,6 @@
           "dimension": "ethnic",
           "groupName": "other",
           "share": 1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Protestant",
-          "share": 39.9,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Roman Catholic",
-          "share": 12.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Apostolic",
-          "share": 2.3,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "Church of Jesus Christ",
-          "share": 1.8,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "customary beliefs",
-          "share": 3.1,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "other",
-          "share": 12,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "none",
-          "share": 1.4,
-          "sourceId": "cia-factbook",
-          "referenceYear": 2020
-        },
-        {
-          "dimension": "religious",
-          "groupName": "unspecified",
-          "share": 0.1,
           "sourceId": "cia-factbook",
           "referenceYear": 2020
         },

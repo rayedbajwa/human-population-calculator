@@ -95,6 +95,7 @@
         { "dimension": "ethnic", "groupName": "Hausa", "share": 30, "sourceId": "fixture-diversity", "referenceYear": 2020 },
         { "dimension": "ethnic", "groupName": "Yoruba", "share": 15.5, "sourceId": "fixture-diversity", "referenceYear": 2020 },
         { "dimension": "ethnic", "groupName": "Igbo", "share": 15.2, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "other", "share": 39.3, "sourceId": "fixture-diversity", "referenceYear": 2020 },
         { "dimension": "religious", "groupName": "Muslim", "share": 53.5, "sourceId": "fixture-diversity", "referenceYear": 2020 },
         { "dimension": "religious", "groupName": "Christian", "share": 45.9, "sourceId": "fixture-diversity", "referenceYear": 2020 }
       ],

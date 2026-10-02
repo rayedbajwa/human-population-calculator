@@ -25,6 +25,21 @@ the data; it is not a published index figure. This is a deliberate deviation fro
 `research.md`'s preference for the published QoG/Alesina index, because no keyless, stable
 publication of that index was available to automate here.
 
+## Factbook share parsing and the completeness guard
+
+Factbook share strings are messy (`15-20%` ranges, `more than 95%`, `approximately 15%`,
+`other <1%`, HTML entities and at least one slash-as-decimal like `93/1%`).
+`scripts/factbook-shares.ts` parses ranges as their midpoint and qualifiers as their bound
+instead of dropping those rows.
+
+Because a partially reported field (for example Russia's religions, which cover only
+"practicing worshipers" and sum to 32%) would otherwise render as if it were a whole
+composition, a dimension whose parsed shares fall outside **90–110%** is dropped from the
+snapshot entirely: the UI shows the explicit "diversity data not available" state rather than
+a wrong breakdown. `validate:dataset` treats any such dimension that still reaches the file as
+a hard **error**, and `tests/unit/dataset.quality.test.ts` proves the committed snapshot has
+none.
+
 ## Population source deviation
 
 The second deliberate deviation is the population source: `research.md` named UN WPP as the
@@ -52,6 +67,8 @@ the same schema and is not regenerated.
   boundary features shaded). The dataset-wide coverage is tracked separately as a regression
   floor in `tests/unit/dataset.coverage.test.ts`.
 - 215 countries carry at least one diversity breakdown row; the rest render the explicit
-  "diversity data not available" state.
-- Per-dimension shares occasionally do not sum to 100% because the Factbook reports "other"
-  categories inconsistently; `validate:dataset` logs these as non-fatal warnings by design.
+  "diversity data not available" state. Dimension groups whose parsed shares fall outside
+  90–110% are omitted entirely (never shown partial); see the completeness guard above.
+- Per-dimension shares within the 90–110% window may still differ from 100% (rounding, and
+  Factbook "other" categories reported inconsistently); `validate:dataset` logs those as
+  non-fatal warnings, while anything outside the window is a hard error.

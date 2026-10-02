@@ -16,6 +16,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import worldCountries from 'world-countries'
 import type { Country, DatasetSnapshot, Dimension, DiversityBreakdown } from '../src/types'
+import { dimensionTotal, isPlausibleDimension, parseShares } from './factbook-shares'
 
 const ROOT = process.cwd()
 const DATA_DIR = path.join(ROOT, 'data')
@@ -47,10 +48,6 @@ function normalize(value: string): string {
     .trim()
 }
 
-function stripHtml(value: string): string {
-  return value.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
-}
-
 function fieldText(section: Record<string, unknown>, key: string): string | undefined {
   const entry = section[key]
   if (entry == null) return undefined
@@ -69,21 +66,6 @@ function fieldText(section: Record<string, unknown>, key: string): string | unde
 function referenceYearFrom(text: string): number {
   const match = /(19|20)\d{2}/.exec(text)
   return match ? Number(match[0]) : FACTBOOK_REFERENCE_YEAR
-}
-
-function parseShares(text: string): Array<{ groupName: string; share: number }> {
-  const clean = stripHtml(text).replace(/\([^)]*\)/g, '')
-  const rows: Array<{ groupName: string; share: number }> = []
-  for (const segment of clean.split(/[;,]/)) {
-    const match = /^(.*?)\s+([\d.]+)\s*%/.exec(segment.trim())
-    if (!match) continue
-    const groupName = match[1]!.replace(/^(less than|about|over|approximately)\s+/i, '').trim()
-    const share = Number(match[2])
-    if (!groupName || !Number.isFinite(share) || /less than|more than|over|under/i.test(match[1]!)) continue
-    if (share <= 0 || share > 100) continue
-    rows.push({ groupName, share: Math.round(share * 10) / 10 })
-  }
-  return rows
 }
 
 async function mapLimit<T, R>(items: T[], limit: number, fn: (item: T) => Promise<R>): Promise<R[]> {
@@ -191,8 +173,26 @@ async function main(): Promise<void> {
       ]
       for (const [dimension, text] of dimensions) {
         if (!text) continue
+        const rows = parseShares(text)
+        // A dimension whose parsed shares do not plausibly describe a whole
+        // composition (e.g. Russia's "practicing worshipers", or a language
+        // census where respondents gave more than one answer) is dropped so
+        // the UI shows the explicit unavailable state (FR-004/FR-007/FR-008)
+        // instead of rendering an incomplete list as complete.
+        if (!isPlausibleDimension(rows)) {
+          // A text-only field with no numeric shares was always empty; only the
+          // fields that parsed shares but failed the coverage guard are worth
+          // reporting.
+          if (rows.length > 0) {
+            const total = dimensionTotal(rows)
+            console.warn(
+              `  dropped ${code}/${dimension}: ${rows.length} rows summing to ${total.toFixed(1)}%`,
+            )
+          }
+          continue
+        }
         const year = referenceYearFrom(text)
-        for (const row of parseShares(text)) {
+        for (const row of rows) {
           breakdown.push({
             dimension,
             groupName: row.groupName,

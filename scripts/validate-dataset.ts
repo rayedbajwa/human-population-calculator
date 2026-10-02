@@ -11,6 +11,7 @@ import path from 'node:path'
 import Ajv2020 from 'ajv/dist/2020'
 import addFormats from 'ajv-formats'
 import { parseSnapshot, type DatasetError } from '../src/lib/dataset'
+import { DIMENSION_TOTAL_MAX, DIMENSION_TOTAL_MIN } from './factbook-shares'
 
 const ROOT = process.cwd()
 const SCHEMA_PATH = path.join(ROOT, 'specs', '001-population-globe', 'contracts', 'dataset.schema.json')
@@ -50,7 +51,14 @@ async function validateFile(ajv: InstanceType<typeof Ajv2020>, schema: object, f
       }
       for (const [dimension, dimensionRows] of groupByDimension(country.diversityBreakdown)) {
         const total = dimensionRows.reduce((acc, row) => acc + row.share, 0)
-        if (total < 99 || total > 101) {
+        // A dimension that ships outside the plausible-coverage window means an
+        // incomplete composition reached the snapshot: fail the build instead
+        // of logging a warning (the generator must drop or fix it).
+        if (total < DIMENSION_TOTAL_MIN || total > DIMENSION_TOTAL_MAX) {
+          errors.push(
+            `${country.code}/${dimension}: shares sum to ${total.toFixed(1)}% (outside ${DIMENSION_TOTAL_MIN}–${DIMENSION_TOTAL_MAX})`,
+          )
+        } else if (total < 99 || total > 101) {
           warnings.push(`${country.code}/${dimension}: shares sum to ${total.toFixed(1)}% (outside 99–101)`)
         }
       }
