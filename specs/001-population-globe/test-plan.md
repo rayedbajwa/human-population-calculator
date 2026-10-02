@@ -21,7 +21,7 @@ E2E uses the pre-installed Chromium under `/ms-playwright` and serves on port `3
 
 | Layer | Tool | Scope |
 |-------|------|-------|
-| Static | `tsc --noEmit` | Entity and module contract shapes in `src/types.ts` and `contracts/ui-contracts.md` |
+| Static | `tsc --noEmit` | Entity and module contract shapes in `src/types.ts`; the `contracts/ui-contracts.md` component shapes are exercised indirectly by the component tests |
 | Unit | Vitest | `format.ts`, `search.ts`, `diversity.ts`, `dataset.ts` selectors and no-data guards |
 | Component | Vitest + Testing Library | `DetailPanel`, `SearchBox`, `Legend`, `ErrorState`, `DataUnavailable` states |
 | E2E | Playwright Chromium | US1–US3 acceptance, responsive, reduced-motion/touch, error/retry, performance, provenance |

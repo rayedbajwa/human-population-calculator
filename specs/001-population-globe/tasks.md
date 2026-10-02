@@ -146,3 +146,22 @@ Addresses the three new MAJOR findings, the MINORs and the NITs in `code-review.
 
 - Factbook parsing/coverage now lives in `scripts/factbook-shares.ts` so it is unit-tested without network access; the generator imports it.
 - The completeness guard drops a dimension whose parsed shares sum outside 90–110% (partial fields such as `RUS/religious` = 32% and multi-response language censuses such as `TKL/linguistic` = 182.5%). Confirmed after regeneration: 0 of 485 groups outside the window; `RUS/religious` is absent, `IRQ/ethnic` parses to 100.0% from its ranges.
+
+## Review fixes (2026-10-02, verify-driven re-run)
+
+Addresses the MINORs and NITs left in `code-review.md` (`Code Review Status: CHANGES_REQUESTED`). The single MAJOR (no PR/CI) is still externally blocked — see T056.
+
+- [x] T076 [MINOR] `cleanGroupName` now strips leading conjunctions (`and`/`or`/`the`/`of`/`with`/`including`), a trailing `~`, unmatched trailing `)`, trailing `.` and stray whitespace; regenerated `data/snapshot.json` and added a label-hygiene assertion to `tests/unit/dataset.quality.test.ts` (`scripts/factbook-shares.ts`, `data/snapshot.json`, `tests/unit/dataset.quality.test.ts`)
+- [x] T077 [MAJOR, found while fixing T076] The Factbook number token now accepts a leading-dot decimal (`.06%`), which the previous regex read as `6%` and inflated `BRA/religious` from 100.5% to 107.5%; covered by `tests/unit/factbook-shares.test.ts` and the regenerated snapshot (`scripts/factbook-shares.ts`, `data/snapshot.json`)
+- [x] T078 [MINOR] Added `scripts/check-relative-assets.ts`, wired into `bun run build`, so CI and the deploy workflow fail if `dist/index.html` emits root-absolute `/assets/...` URLs (the E2E suite cannot catch it because `vite preview` serves from the domain root) (`scripts/check-relative-assets.ts`, `package.json`)
+- [x] T079 [NIT] `decodeEntities` leaves an unrecognised named entity intact instead of collapsing it to a space, with a test (`scripts/factbook-shares.ts`, `tests/unit/factbook-shares.test.ts`)
+- [x] T080 [NIT] Corrected the `test-plan.md` Static-layer row so the `contracts/ui-contracts.md` coverage claim matches reality (component tests exercise the shapes; no dedicated contract test) (`specs/001-population-globe/test-plan.md`)
+
+### Verify re-run test record
+
+- `bun run lint` clean (46 files); `bun run typecheck` clean.
+- `bun run test` **101 passed / 0 failed** (15 files; +4: 3 parser/label, 1 label hygiene). Targeted run of the changed files: 21/21.
+- `bun run validate:dataset` exit 0 — 0 errors; all 485 dimension groups inside 90–110% (min/max 90.0–107.7 before, re-checked after regeneration).
+- Regenerated snapshot scan: 0/485 groups out of window, 0 artifact group names; `BRA/religious` "Indigenous religions" is 0.1% (was misread as 6%).
+- `bun run build` OK and now runs the relative-asset guard: `✓ dist/index.html uses relative asset URLs`.
+- E2E not run in this stage (review/verify run it); the E2E-relevant countries are unchanged (USA ethnic+indicator, CIV no diversity, NGA with data).
