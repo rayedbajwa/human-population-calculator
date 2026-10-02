@@ -1,0 +1,193 @@
+{
+  "version": "1.0.0",
+  "retrievedDate": "2026-10-01",
+  "sources": [
+    {
+      "id": "fixture-population",
+      "name": "Fixture Population Source",
+      "url": "https://example.org/fixture-population",
+      "license": "public-domain",
+      "referenceYear": 2024
+    },
+    {
+      "id": "fixture-diversity",
+      "name": "Fixture Diversity Source",
+      "url": "https://example.org/fixture-diversity",
+      "license": "public-domain",
+      "referenceYear": 2020
+    }
+  ],
+  "countries": [
+    {
+      "code": "USA",
+      "name": "United States of America",
+      "commonName": "United States",
+      "aliases": ["US", "USA", "America"],
+      "region": "Americas",
+      "boundaryId": "840",
+      "totalPopulation": 341784857,
+      "populationSourceId": "fixture-population",
+      "populationReferenceYear": 2024,
+      "diversityBreakdown": [
+        { "dimension": "ethnic", "groupName": "White", "share": 61.6, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "Black or African American", "share": 12.4, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "Hispanic", "share": 18.7, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "religious", "groupName": "Christian", "share": 65, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "religious", "groupName": "None", "share": 26, "sourceId": "fixture-diversity", "referenceYear": 2020 }
+      ],
+      "diversityIndicator": {
+        "name": "Ethnic fractionalisation (fixture)",
+        "value": 0.584,
+        "scaleMin": 0,
+        "scaleMax": 1,
+        "sourceId": "fixture-diversity",
+        "referenceYear": 2020
+      }
+    },
+    {
+      "code": "CIV",
+      "name": "Republic of Côte d'Ivoire",
+      "commonName": "Côte d'Ivoire",
+      "aliases": ["Ivory Coast", "Cote d Ivoire"],
+      "region": "Africa",
+      "boundaryId": "384",
+      "totalPopulation": 32711547,
+      "populationSourceId": "fixture-population",
+      "populationReferenceYear": 2024,
+      "diversityBreakdown": [],
+      "diversityIndicator": null
+    },
+    {
+      "code": "VAT",
+      "name": "Vatican City State",
+      "commonName": "Vatican City",
+      "region": "Europe",
+      "boundaryId": "336",
+      "totalPopulation": null,
+      "diversityBreakdown": [],
+      "diversityIndicator": null
+    },
+    {
+      "code": "GRL",
+      "name": "Greenland",
+      "commonName": "Greenland",
+      "region": "Americas",
+      "boundaryId": "304",
+      "totalPopulation": 56831,
+      "populationSourceId": "fixture-population",
+      "populationReferenceYear": 2024,
+      "diversityBreakdown": [
+        { "dimension": "ethnic", "groupName": "Greenlandic", "share": 88.1, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "Danish", "share": 7.1, "sourceId": "fixture-diversity", "referenceYear": 2020 }
+      ],
+      "diversityIndicator": null
+    },
+    {
+      "code": "NGA",
+      "name": "Federal Republic of Nigeria",
+      "commonName": "Nigeria",
+      "region": "Africa",
+      "boundaryId": "566",
+      "totalPopulation": 232679478,
+      "populationSourceId": "fixture-population",
+      "populationReferenceYear": 2024,
+      "diversityBreakdown": [
+        { "dimension": "ethnic", "groupName": "Hausa", "share": 30, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "Yoruba", "share": 15.5, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "Igbo", "share": 15.2, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "other", "share": 39.3, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "religious", "groupName": "Muslim", "share": 53.5, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "religious", "groupName": "Christian", "share": 45.9, "sourceId": "fixture-diversity", "referenceYear": 2020 }
+      ],
+      "diversityIndicator": null
+    },
+    {
+      "code": "JPN",
+      "name": "Japan",
+      "commonName": "Japan",
+      "region": "Asia",
+      "boundaryId": "392",
+      "totalPopulation": 123366734,
+      "populationSourceId": "fixture-population",
+      "populationReferenceYear": 2024,
+      "diversityBreakdown": [],
+      "diversityIndicator": null
+    },
+    {
+      "code": "FRA",
+      "name": "French Republic",
+      "commonName": "France",
+      "region": "Europe",
+      "boundaryId": "250",
+      "totalPopulation": 66400000,
+      "populationSourceId": "fixture-population",
+      "populationReferenceYear": 2024,
+      "diversityBreakdown": [
+        { "dimension": "linguistic", "groupName": "French", "share": 100, "sourceId": "fixture-diversity", "referenceYear": 2020 }
+      ],
+      "diversityIndicator": {
+        "name": "Ethnic fractionalisation (fixture)",
+        "value": 0.341,
+        "scaleMin": 0,
+        "scaleMax": 1,
+        "sourceId": "fixture-diversity",
+        "referenceYear": 2020
+      }
+    },
+    {
+      "code": "CHN",
+      "name": "People's Republic of China",
+      "commonName": "China",
+      "region": "Asia",
+      "boundaryId": "156",
+      "totalPopulation": 1419321278,
+      "populationSourceId": "fixture-population",
+      "populationReferenceYear": 2024,
+      "diversityBreakdown": [
+        { "dimension": "ethnic", "groupName": "Han Chinese", "share": 91.1, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "Zhuang", "share": 1.3, "sourceId": "fixture-diversity", "referenceYear": 2020 }
+      ],
+      "diversityIndicator": {
+        "name": "Ethnic fractionalisation (fixture)",
+        "value": 0.154,
+        "scaleMin": 0,
+        "scaleMax": 1,
+        "sourceId": "fixture-diversity",
+        "referenceYear": 2020
+      }
+    },
+    {
+      "code": "BRA",
+      "name": "Federative Republic of Brazil",
+      "commonName": "Brazil",
+      "region": "Americas",
+      "boundaryId": "76",
+      "totalPopulation": 211998573,
+      "populationSourceId": "fixture-population",
+      "populationReferenceYear": 2024,
+      "diversityBreakdown": [
+        { "dimension": "ethnic", "groupName": "White", "share": 47.7, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "Mixed", "share": 43.1, "sourceId": "fixture-diversity", "referenceYear": 2020 },
+        { "dimension": "ethnic", "groupName": "Black", "share": 7.6, "sourceId": "fixture-diversity", "referenceYear": 2020 }
+      ],
+      "diversityIndicator": {
+        "name": "Ethnic fractionalisation (fixture)",
+        "value": 0.54,
+        "scaleMin": 0,
+        "scaleMax": 1,
+        "sourceId": "fixture-diversity",
+        "referenceYear": 2020
+      }
+    },
+    {
+      "code": "ATA",
+      "name": "Antarctica",
+      "commonName": "Antarctica",
+      "region": "Antarctica",
+      "boundaryId": "10",
+      "totalPopulation": null,
+      "diversityBreakdown": [],
+      "diversityIndicator": null
+    }
+  ]
+}

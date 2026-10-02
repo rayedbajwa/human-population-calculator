@@ -1,0 +1,30 @@
+:root {
+  /* Colour-blind-safe sequential palette (Okabe–Ito inspired) for population. */
+  --pg-bucket-1: #c7e9c0;
+  --pg-bucket-2: #a1d99b;
+  --pg-bucket-3: #74c476;
+  --pg-bucket-4: #41ab5d;
+  --pg-bucket-5: #238b45;
+  --pg-bucket-6: #005a32;
+  --pg-no-data: #9aa4ad;
+
+  --pg-bg: #0b1622;
+  --pg-surface: #12202f;
+  --pg-surface-2: #1b2c3e;
+  --pg-text: #eaf1f8;
+  --pg-text-muted: #a9b8c7;
+  --pg-border: #2b3f52;
+  --pg-accent: #5bc0eb;
+  --pg-danger: #ff6b6b;
+
+  --pg-space-1: 0.25rem;
+  --pg-space-2: 0.5rem;
+  --pg-space-3: 0.75rem;
+  --pg-space-4: 1rem;
+  --pg-space-5: 1.5rem;
+  --pg-space-6: 2rem;
+
+  --pg-radius: 10px;
+  --pg-font: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --pg-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
