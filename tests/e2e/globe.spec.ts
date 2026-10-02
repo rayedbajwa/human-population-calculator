@@ -15,6 +15,8 @@ test.describe('US1 — interactive population globe', () => {
   })
 
   test('rotates the camera when dragged', async ({ page }) => {
+    // Software WebGL on CI renders each pointer step slowly; give the drag room.
+    test.setTimeout(90_000)
     // Reduced motion disables auto-spin so the only camera movement is the drag.
     await page.emulateMedia({ reducedMotion: 'reduce' })
     await openApp(page)
@@ -27,15 +29,15 @@ test.describe('US1 — interactive population globe', () => {
     // Wheel once to let the controls emit an initial camera position.
     await page.mouse.move(box!.x + box!.width / 2, box!.y + box!.height / 2)
     await page.mouse.wheel(0, -200)
-    await expect(globe).toHaveAttribute('data-camera-lng', /.+/)
+    await expect(globe).toHaveAttribute('data-camera-lng', /.+/, { timeout: 30_000 })
     const before = await globe.getAttribute('data-camera-lng')
 
     await page.mouse.down()
-    await page.mouse.move(box!.x + box!.width / 2 + 150, box!.y + box!.height / 2, { steps: 10 })
+    await page.mouse.move(box!.x + box!.width / 2 + 150, box!.y + box!.height / 2, { steps: 4 })
     await page.mouse.up()
 
     await expect
-      .poll(async () => globe.getAttribute('data-camera-lng'))
+      .poll(async () => globe.getAttribute('data-camera-lng'), { timeout: 30_000 })
       .not.toBe(before)
     await expect(page.getByTestId('globe-view')).toBeVisible()
     await expect(canvas).toBeVisible()
