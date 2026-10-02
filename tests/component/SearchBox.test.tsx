@@ -71,6 +71,14 @@ describe('SearchBox', () => {
     expect(onChoose).toHaveBeenCalledWith('JPN')
   })
 
+  it('chooses the first suggestion with Enter when none is highlighted', async () => {
+    const onChoose = vi.fn()
+    const user = userEvent.setup()
+    render(<Harness onChoose={onChoose} />)
+    await user.type(screen.getByTestId('search-input'), 'jap{Enter}')
+    expect(onChoose).toHaveBeenCalledWith('JPN')
+  })
+
   it('exposes the active option through aria-activedescendant', async () => {
     const user = userEvent.setup()
     render(<Harness />)

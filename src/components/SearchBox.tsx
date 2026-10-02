@@ -36,9 +36,14 @@ export function SearchBox({ countries, query, onQueryChange, onChoose }: SearchB
     } else if (event.key === 'ArrowUp') {
       event.preventDefault()
       setActiveIndex((index) => (index - 1 + matches.length) % matches.length)
-    } else if (event.key === 'Enter' && activeOption) {
-      event.preventDefault()
-      onChoose(activeOption.code)
+    } else if (event.key === 'Enter') {
+      // Standard combobox behaviour: Enter chooses the highlighted option, or
+      // the first match when the user has not arrowed down yet.
+      const choice = activeOption ?? matches[0]
+      if (choice) {
+        event.preventDefault()
+        onChoose(choice.code)
+      }
     } else if (event.key === 'Escape') {
       setActiveIndex(-1)
     }
