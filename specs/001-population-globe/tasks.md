@@ -140,6 +140,7 @@ Addresses the three new MAJOR findings, the MINORs and the NITs in `code-review.
 - Affected Playwright specs (`globe`, `search`, `error-retry`, `reduced-motion-touch`, `diversity`, `performance`) **18 passed / 0 failed**.
 - Sub-path check (manual, reproducible): `dist/` served under `/human-population-calculator/` loaded with Chromium, shaded 169/177 boundary features, all assets and both `data/*.json` requests resolved under the sub-path, no console errors.
 - MAJOR 4 remains open: the remote `origin` has no refs, so T056 needs a push and PR (plus the T057 human review gate) before CI can be read.
+  - Iteration 3 push attempt (approved): `git push -u origin main` / `001-population-globe` both failed with `403 — Permission to rayedbajwa/human-population-calculator denied to spaces-spaces-production-rayed[bot]`; the GitHub API reports `permissions: {push:false, pull:false}`. The branch and the empty `main` base commit (`c535fae`) are ready locally, but a credential with write access (or the delivery stage) must push them and open the PR.
 
 ### Iteration 3 implementation notes
 
