@@ -4,10 +4,10 @@ _Generated 2026-10-02T04:16Z · 1 pull request, 0 open_
 
 | Repo | PR | Base | State | CI | Review | Merged at | Deploy |
 |------|----|------|-------|----|--------|-----------|--------|
-| rayedbajwa/human-population-calculator | [#1](https://github.com/rayedbajwa/human-population-calculator/pull/1) | main | merged (`b6a922f`) | CI #3 success | approved | 2026-10-02T04:11Z | GitHub Pages `6801114729` on `github-pages` @ `b6a922f` — success |
+| rayedbajwa/human-population-calculator | [#1](https://github.com/rayedbajwa/human-population-calculator/pull/1) | main | merged (`b6a922f`) | CI #3 success | human gate (no GitHub review object) | 2026-10-02T04:11Z | GitHub Pages `6801114729` @ `b6a922f`, then `6801223482` @ `57ecc9c` — both success |
 
 Deployed URL: https://rayedbajwa.github.io/human-population-calculator/
-UAT: full Playwright acceptance suite against the deployed URL — 27 passed / 0 failed (2026-10-02T04:15Z).
+UAT: full Playwright acceptance suite against the deployed URL — 27 passed / 0 failed (2026-10-02T04:15Z). Reproducible only with the test-only `page.goto('./')` subpath fix noted in `delivery-report.md`.
 
 Suggested next action: none for delivery; SC-005 (human usability study) remains manual.
 

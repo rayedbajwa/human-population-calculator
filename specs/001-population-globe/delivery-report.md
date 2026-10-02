@@ -11,7 +11,7 @@ Delivery Status: MERGED
 |------|----|-------|----|-----------|--------|
 | rayedbajwa/human-population-calculator | [#1](https://github.com/rayedbajwa/human-population-calculator/pull/1) | **merged** (`b6a922f`) | `CI` runs #2 and #3 — success (lint, typecheck, unit, build, e2e) | 2026-10-02T04:11Z | GitHub Pages deployment `6801114729` on `github-pages` @ `b6a922f` — success |
 
-Merge order: single PR, no stack. `main` and `001-population-globe` are pushed; `main` is at merge commit `b6a922f`.
+Merge order: single PR, no stack. `main` is at `57ecc9c` (the merge commit `b6a922f` plus the delivery-report update); the `001-population-globe` head branch was auto-deleted on merge (only `refs/pull/1/head` remains). A second GitHub Pages deployment (`6801223482` @ `57ecc9c`) followed the docs-only commit and succeeded; the built app content is identical to `b6a922f`.
 
 ## What I fixed / did
 
@@ -39,7 +39,7 @@ Run against the deployed environment **https://rayedbajwa.github.io/human-popula
 
 Deployment-specific checks also pass directly: `GET /` 200, `data/snapshot.json` 200 (687 KB), `data/countries-110m.topo.json` 200 (108 KB), and the built JS/CSS assets return 200 under the `/human-population-calculator/` subpath (relative `./assets/...` URLs).
 
-UAT note: the E2E helper navigated with `page.goto('/')`, which Playwright resolves against the *origin* and therefore missed the project subpath. For the UAT run I temporarily used `page.goto('./')`; the app itself is unaffected. The one-line helper fix is a recommended test-only follow-up (it would need its own PR). No production code defect was found.
+UAT note: the E2E helper navigated with `page.goto('/')`, which Playwright resolves against the *origin* and therefore missed the project subpath. For the UAT run I temporarily changed it to `page.goto('./')` in `tests/e2e/helpers.ts` and `tests/e2e/error-retry.spec.ts` (uncommitted, then reverted); the app itself is unaffected, but the 27/27 result is not reproducible from the committed code without that one-line change. The helper fix is a recommended test-only follow-up (it would need its own PR). No production code defect was found.
 
 ## What still needs approval / waits on someone
 
