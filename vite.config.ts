@@ -30,15 +30,23 @@ function dataDirPlugin(): Plugin {
     },
     closeBundle() {
       const out = path.resolve(process.cwd(), 'dist/data')
-      if (fs.existsSync(dataDir)) {
-        fs.mkdirSync(out, { recursive: true })
-        fs.cpSync(dataDir, out, { recursive: true })
+      if (!fs.existsSync(dataDir)) return
+      fs.mkdirSync(out, { recursive: true })
+      // Only the two files read at runtime are published; the dataset README
+      // and schema stay in the repo.
+      for (const file of ['snapshot.json', 'countries-110m.topo.json']) {
+        const from = path.join(dataDir, file)
+        if (fs.existsSync(from)) fs.copyFileSync(from, path.join(out, file))
       }
     },
   }
 }
 
 export default defineConfig({
+  // Relative asset URLs so the GitHub Pages project site (served from
+  // /human-population-calculator/) resolves them, and so the same build works
+  // at the domain root.
+  base: './',
   plugins: [react(), dataDirPlugin()],
   build: {
     target: 'es2022',

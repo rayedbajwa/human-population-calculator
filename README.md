@@ -37,6 +37,12 @@ bun run test:all       # lint + typecheck + unit + build + E2E in one run (the C
 `PLAYWRIGHT_PORT`); do not use port 3000. No credentials or environment variables are
 required — see [`.env.example`](.env.example).
 
+## Deployment
+
+`.github/workflows/deploy.yml` publishes `dist/` to GitHub Pages on a push to `main`. The
+build uses `base: './'`, so assets and the `data/` fetches resolve under the project subpath
+(`/human-population-calculator/`) as well as at a domain root.
+
 ## Dataset
 
 The app reads a committed, versioned snapshot in [`data/`](data/):
